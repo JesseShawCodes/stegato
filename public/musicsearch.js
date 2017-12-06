@@ -33,25 +33,23 @@ $(".musicsearch").on("submit", function(e) {
                 $.getJSON(`${albumUrl}${artistNumber}&entity=album`, function(data){
                     console.log(data.results.length);
                     for (var i = 1; i < data.results.length; i++) {
-                        /*
-                        $("#results").append(`
-                        <section>
-                            <img src="${data.results[i].artworkUrl100}" alt="${data.results[i].collectionName} album">
-                            <span>${data.results[i].collectionName}</span> 
-                        </section>
-                        `);
-                        */
                         $("#results").append(`
                         <div class="grid-item">
-                        <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                            <div class="card">
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front">
                                 <img class="card-img-top" src="${data.results[i].artworkUrl100}">
-                                <div class="card-block">
-                                    <h5 class="text-bold">${data.results[i].collectionName}</h5>
                                 </div>
-                            </div>
-                            <div class="rating">
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                <div class="back">
+                                <div class="card-block">
+                                    <h5 class="text-bold">${data.results[i].artistName}</h5>
+                                    <h5 class="text-bold">${data.results[i].collectionName}</h5>
+                                    <p class="text-bold">${data.results[i].primaryGenreName}</p>
+                                </div>
+                                <div class="rating">
+                                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                </div>
+                                </div>
                             </div>
                         </div>
                         `)
