@@ -55,6 +55,21 @@ h5 {
     border: 1px solid rgba(0, 0, 0, .05);
 }
 
+.rating > span:hover:before {
+    content: "\2605";
+    position: absolute;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+
+.rating > span:hover:before, .rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+}
+
 .profile {
     position: absolute;
     top: -12px;
@@ -110,20 +125,3 @@ h5 {
 }
 
 
-/* clearfix */
-#results:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-  
-  /* ---- grid-item ---- */
-  
-.grid-item {
-    width: 160px;
-    float: left;
-    background: white;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.5);
-    border-radius: 5px;
-}

@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import Landingpage from './landingpage.js';
 
 ReactDOM.render(
-    <h1>Hello World</h1>, 
+    <Landingpage />, 
     document.getElementById('root')
 );
 

@@ -50,6 +50,9 @@ $(".musicsearch").on("submit", function(e) {
                                     <h5 class="text-bold">${data.results[i].collectionName}</h5>
                                 </div>
                             </div>
+                            <div class="rating">
+                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
                         </div>
                         `)
 

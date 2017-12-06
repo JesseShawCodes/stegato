@@ -1,0 +1,5 @@
+.grid-item {
+    width: 200px;
+    display: inline-table;
+    background-color: #FC4445;
+}
