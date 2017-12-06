@@ -9,9 +9,9 @@ export default function Header() {
                     TMRD
                 </h1>
                 <nav>
-                    <a href="">Lorem</a>
-                    <a href="">Ipsum</a>
-                    <a href="">Dolor</a>
+                    <a href="">Home</a>
+                    <a href="">Account</a>
+                    <a href="">Login</a>
                 </nav>
             </div>
         </header>

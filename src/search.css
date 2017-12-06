@@ -131,21 +131,31 @@ h5 {
 .flip-container {
 	perspective: 1000px;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
 
-.flip-container, .front, .back {
-    width: 400px;
-    height: 150px;
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container {
+    width: 200px;
+    height: 200px;
+}
+
+.front {
+    width: 200px;
+    height: 200px;
+}
+
+.back {
+    width: 200px;
+    height: 200px;
 }
 
 /* flip speed goes here */
 .flipper {
-	transition: 0.6s;
+	transition: 1s;
 	transform-style: preserve-3d;
-
 	position: relative;
 }
 
