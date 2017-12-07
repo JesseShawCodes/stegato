@@ -45,12 +45,16 @@ $(".musicsearch").on("submit", function(e) {
                                     <h5 class="text-bold">${data.results[i].artistName}</h5>
                                     <h5 class="text-bold">${data.results[i].collectionName}</h5>
                                     <p class="text-bold">${data.results[i].primaryGenreName}</p>
-                                </div>
-                                <div class="rating">
+                                    <section class="rating-add">
+                                    <div class="rating">
                                     <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                                    </div>
+                                    <i class="fa fa-plus" aria-hidden="true" title="Click to add to listen list"></i>
+                                    </section>   
                                 </div>
-                                </div>
+                                </div>                                
                             </div>
+                        </div>
                         </div>
                         `)
 

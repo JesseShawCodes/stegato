@@ -22,6 +22,10 @@ h5 {
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
 }
 
+.card-block {
+    margin-left: 20px;
+}
+
 .card-img-top {
     display: block;
     margin: 0px auto;
@@ -54,6 +58,8 @@ h5 {
 .card-inverse .btn {
     border: 1px solid rgba(0, 0, 0, .05);
 }
+
+
 
 .rating > span:hover:before {
     content: "\2605";
@@ -180,3 +186,11 @@ h5 {
 	transform: rotateY(180deg);
 }
 
+/*********************/
+/*Add to listen list*/
+/*********************/
+
+section.rating-add {
+    padding: 0px;
+    float: left;
+}
