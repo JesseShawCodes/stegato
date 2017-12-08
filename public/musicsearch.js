@@ -20,18 +20,12 @@ $(".musicsearch").on("submit", function(e) {
     $("#results").empty();
     e.preventDefault();
     var searchTerm = $(".searchterm").val();
-    console.log(searchTerm);
     var urlSearch = searchTerm.split(' ').join('+');
     $.getJSON( `${itunesUrl}${urlSearch}`, function(data) {
-        console.log(data.results.length);
         for (var i = 0; i < data.results.length; i++) {
-            // console.log(data.results[i].artistId);
             if (searchTerm == data.results[i].artistName) {
-                console.log("It's a match");
                 const artistNumber = data.results[i].artistId;
-                console.log(artistNumber);
                 $.getJSON(`${albumUrl}${artistNumber}&entity=album`, function(data){
-                    console.log(data.results.length);
                     for (var i = 1; i < data.results.length; i++) {
                         $("#results").append(`
                         <div class="grid-item">
@@ -57,7 +51,6 @@ $(".musicsearch").on("submit", function(e) {
                         </div>
                         </div>
                         `)
-
                     }
                 })
                 break;
