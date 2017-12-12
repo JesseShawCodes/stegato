@@ -23,7 +23,7 @@ $(".musicsearch").on("submit", function(e) {
     var urlSearch = searchTerm.split(' ').join('+');
     $.getJSON( `${itunesUrl}${urlSearch}`, function(data) {
         for (var i = 0; i < data.results.length; i++) {
-            if (searchTerm == data.results[i].artistName) {
+            if (searchTerm == data.results[i].artistName || data.results[i].wrapperType == "track") {
                 const artistNumber = data.results[i].artistId;
                 $.getJSON(`${albumUrl}${artistNumber}&entity=album`, function(data){
                     for (var i = 1; i < data.results.length; i++) {
@@ -55,6 +55,9 @@ $(".musicsearch").on("submit", function(e) {
                 })
                 break;
             }
+        }
+        if (data.resultCount == 0) {
+            $("#results").append("Sorry. We couldn't find that artist");
         }
     })
 })

@@ -10,8 +10,10 @@ export default function Header() {
                 </h1>
                 <nav>
                     <a href="">Home</a>
-                    <a href="">Account</a>
+                    <a href="">Search</a>
+                    <a href="">Dashboard</a>
                     <a href="">Login</a>
+                    <a href="">Logout</a>
                 </nav>
             </div>
         </header>
