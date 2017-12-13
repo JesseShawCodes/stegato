@@ -1,0 +1,12 @@
+footer {
+    height: 100px;
+    background-color: #b1b1b1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+  
+footer > h2 {
+    margin-top: 0px;
+    text-align: center;
+}

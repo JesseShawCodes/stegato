@@ -2,6 +2,7 @@ import React from 'react';
 import Heading from './header.js';
 import Searchbar from './search';
 import Splash from './splash';
+import Footer from './footer';
 
 export default function Landingpage() {
     return (
@@ -13,6 +14,7 @@ export default function Landingpage() {
                 <Splash />
                 <Searchbar />
             </div>
+                <Footer />
         </main>
     );
 }
