@@ -1,9 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './search.css';
 
 export default function Searchbar() {
     return (
-        <div>
+        <div className="search-section">
             <form className="musicsearch">
                 <label>
                 Artist
@@ -32,3 +33,4 @@ const results = {
 }
 
 console.log(results.results);
+

@@ -1,20 +1,6 @@
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
 
-function startMasonry() {
-    console.log("Masonry is running");
-    $('#results').masonry({
-        // options
-        itemSelector: '.grid-item',
-        // columnWidth: 200,
-        horizontalOrder: true,
-        fitWidth: true
-    });
-}
-
-$(document).ready(function(){
-    startMasonry();
-});
 
 $(".musicsearch").on("submit", function(e) {
     $("#results").empty();

@@ -13,7 +13,6 @@ header {
 
 header h1#logo {
   display: inline-block;
-  height: 150px;
   float: left;
   font-family: "Oswald", sans-serif;
   font-size: 60px;
