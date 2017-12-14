@@ -3,6 +3,8 @@ import Heading from './header.js';
 import Searchbar from './search';
 import Splash from './splash';
 import Footer from './footer';
+import Howto from './howto';
+import Signup from './signup';
 
 export default function Landingpage() {
     return (
@@ -12,6 +14,8 @@ export default function Landingpage() {
             </div>
             <div id="main">
                 <Splash />
+                <Howto />
+                <Signup />
                 <Searchbar />
             </div>
                 <Footer />
