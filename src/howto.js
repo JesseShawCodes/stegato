@@ -5,6 +5,7 @@ import './howto.css';
 export default function Howto() {
     return (
         <section className="how-to">
+        <h2>How to Use this App</h2>
             <ul>
                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
                 <li>Duis venenatis quam ut metus dapibus, in maximus lectus semper.</li>

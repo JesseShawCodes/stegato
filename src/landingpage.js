@@ -1,10 +1,11 @@
 import React from 'react';
 import Heading from './header.js';
-import Searchbar from './search';
+import Searchsection from './search';
 import Splash from './splash';
 import Footer from './footer';
 import Howto from './howto';
 import Signup from './signup';
+import Login from './login';
 
 export default function Landingpage() {
     return (
@@ -16,9 +17,10 @@ export default function Landingpage() {
                 <Splash />
                 <Howto />
                 <Signup />
-                <Searchbar />
-            </div>
+                <Login />
+                <Searchsection />
                 <Footer />
+            </div>
         </main>
     );
 }

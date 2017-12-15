@@ -1,11 +1,11 @@
 import React from 'react';
-import './signup.css';
+import './login.css';
 
-export default function Signup() {
+export default function Login() {
     return (
-        <section className="signup-form-section">
-        <h2>Sign Up</h2>
-        <div className="signup-form">
+        <section className="login-form-section">
+        <h2>Login</h2>
+        <div className="login-form">
             <form>
                 <label for="fname">First Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your name.."></input>

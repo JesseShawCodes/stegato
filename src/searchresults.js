@@ -1,25 +1,8 @@
 import React from 'react';
 import './search.css';
-import Searchresults from './searchresults';
+import AlbumRow from './albumrow'
 
-export default function Searchsection() {
-    return (
-        <div className="search-section">
-            <form className="musicsearch">
-                <label>
-                Artist
-                </label>
-                <input type="text" className="searchterm"></input>
-                <input type="submit"></input>
-            </form>
-            <section id="results">
-                <Searchresults />
-            </section>
-        </div>
-    );
-}
-
-const results = {
+const glassjaw = {
     "resultCount":9,
     "results": [
    {"wrapperType":"artist", "artistType":"Artist", "artistName":"Glassjaw", "artistLinkUrl":"https://itunes.apple.com/us/artist/glassjaw/799089?uo=4", "artistId":799089, "amgArtistId":429002, "primaryGenreName":"Rock", "primaryGenreId":21}, 
@@ -33,5 +16,52 @@ const results = {
    {"wrapperType":"collection", "collectionType":"Album", "artistId":72771901, "collectionId":679399198, "amgArtistId":1003758, "artistName":"Black Mesa & Glassjaw", "collectionName":"4-20 Thoughts - Single", "collectionCensoredName":"4-20 Thoughts - Single", "artistViewUrl":"https://itunes.apple.com/us/artist/black-mesa/72771901?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/4-20-thoughts-single/679399198?uo=4", "artworkUrl60":"http://is3.mzstatic.com/image/thumb/Music/v4/bc/e4/72/bce47215-e6a7-8899-d721-5e87eb54a3c7/source/60x60bb.jpg", "artworkUrl100":"http://is3.mzstatic.com/image/thumb/Music/v4/bc/e4/72/bce47215-e6a7-8899-d721-5e87eb54a3c7/source/100x100bb.jpg", "collectionPrice":0.99, "collectionExplicitness":"notExplicit", "trackCount":1, "copyright":"℗ 2013 Synergetic Records", "country":"USA", "currency":"USD", "releaseDate":"2013-08-02T07:00:00Z", "primaryGenreName":"Trance"}, 
    {"wrapperType":"collection", "collectionType":"Album", "artistId":72771901, "collectionId":1121797029, "amgArtistId":1003758, "artistName":"Black Mesa, Glassjaw & Genetrick", "collectionName":"Black Mesa Works - Single", "collectionCensoredName":"Black Mesa Works - Single", "artistViewUrl":"https://itunes.apple.com/us/artist/black-mesa/72771901?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/black-mesa-works-single/1121797029?uo=4", "artworkUrl60":"http://is3.mzstatic.com/image/thumb/Music18/v4/73/5d/62/735d62dd-2d45-63fc-6116-d7710258ea23/source/60x60bb.jpg", "artworkUrl100":"http://is3.mzstatic.com/image/thumb/Music18/v4/73/5d/62/735d62dd-2d45-63fc-6116-d7710258ea23/source/100x100bb.jpg", "collectionPrice":1.99, "collectionExplicitness":"notExplicit", "trackCount":3, "copyright":"℗ Planet B.E.N. Records", "country":"USA", "currency":"USD", "releaseDate":"2016-07-07T07:00:00Z", "primaryGenreName":"Trance"}]
 }
+
+export default class Searchresults extends React.Component {
+    constructor(props)  {
+        super(props);
+        /*
+        this.state = {
+            cards: [{
+                artist: glassjaw.results[1].artistName,
+                album: glassjaw.results[1].collectionName,
+                genre: glassjaw.results[1].primaryGenreName
+            }, {
+                artist: glassjaw.results[2].artistName,
+                album: glassjaw.results[2].collectionName,
+                genre: glassjaw.results[2].primaryGenreName                
+            }, {
+                artist: glassjaw.results[3].artistName,
+                album: glassjaw.results[3].collectionName,
+                genre: glassjaw.results[3].primaryGenreName                
+            }, glassjaw.results[4]]
+        }
+        */
+        this.state = {
+            cards: [glassjaw.results[1], glassjaw.results[2], glassjaw.results[3]]
+        }
+        console.log(this.state.cards[1].artistName);
+    }
+
+    render() {
+        const cards = this.state.cards.map((card, index) =>
+            <AlbumRow key={index} {...card} />
+        );
+        return (
+            <div className="card-block">
+                <h3>{this.state.cards.artistName}</h3>
+                <h3>{this.state.cards.collectionName}</h3>
+                <p>{this.state.cards.primaryGenreName}</p>
+                {cards}
+            </div>
+        );
+    }
+}
+
+Searchresults.defaultProps = {
+    title: ''
+};
+
+console.log(glassjaw);
 
 
