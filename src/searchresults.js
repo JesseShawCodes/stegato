@@ -19,10 +19,19 @@ const music = {
 
 export default class Searchresults extends React.Component {
     render() {
+        console.log(music.results[1].artistName)
         const cards = []
-        for (var i = 0; i < this.props.level; i++) {
-          cards.push(<AlbumRow key={music.results[i+1]}/>);
+        for (var i = 1; i < music.results.length; i++) {
+          if (music.results[i].wrapperType !== "collection") {
+            break;
+          }
+          let artistKey = music.results[i].artistName;
+          let albumKey = music.results[i].collectionName;
+          let genreKey = music.results[i].primaryGenreName;
+          let imageKey = music.results[i].artworkUrl100;
+          cards.push(<AlbumRow artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey}/>);
         }
+        console.log(cards)
       return (
         <div>
           {cards}
