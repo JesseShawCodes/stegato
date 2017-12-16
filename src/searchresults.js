@@ -2,7 +2,7 @@ import React from 'react';
 import './search.css';
 import AlbumRow from './albumrow'
 
-const glassjaw = {
+const music = {
     "resultCount":9,
     "results": [
    {"wrapperType":"artist", "artistType":"Artist", "artistName":"Glassjaw", "artistLinkUrl":"https://itunes.apple.com/us/artist/glassjaw/799089?uo=4", "artistId":799089, "amgArtistId":429002, "primaryGenreName":"Rock", "primaryGenreId":21}, 
@@ -18,50 +18,18 @@ const glassjaw = {
 }
 
 export default class Searchresults extends React.Component {
-    constructor(props)  {
-        super(props);
-        /*
-        this.state = {
-            cards: [{
-                artist: glassjaw.results[1].artistName,
-                album: glassjaw.results[1].collectionName,
-                genre: glassjaw.results[1].primaryGenreName
-            }, {
-                artist: glassjaw.results[2].artistName,
-                album: glassjaw.results[2].collectionName,
-                genre: glassjaw.results[2].primaryGenreName                
-            }, {
-                artist: glassjaw.results[3].artistName,
-                album: glassjaw.results[3].collectionName,
-                genre: glassjaw.results[3].primaryGenreName                
-            }, glassjaw.results[4]]
-        }
-        */
-        this.state = {
-            cards: [glassjaw.results[1], glassjaw.results[2], glassjaw.results[3]]
-        }
-        console.log(this.state.cards[1].artistName);
-    }
-
     render() {
-        const cards = this.state.cards.map((card, index) =>
-            <AlbumRow key={index} {...card} />
-        );
-        return (
-            <div className="card-block">
-                <h3>{this.state.cards.artistName}</h3>
-                <h3>{this.state.cards.collectionName}</h3>
-                <p>{this.state.cards.primaryGenreName}</p>
-                {cards}
-            </div>
-        );
+        const cards = []
+        for (var i = 0; i < this.props.level; i++) {
+          cards.push(<AlbumRow key={music.results[i+1]}/>);
+        }
+      return (
+        <div>
+          {cards}
+        </div>
+      );
     }
 }
 
-Searchresults.defaultProps = {
-    title: ''
-};
-
-console.log(glassjaw);
 
 

@@ -7,7 +7,7 @@ export default function AlbumRow(props) {
         <div className="flip-container" ontouchstart="this.classList.toggle('hover');">
             <div className="flipper">
                 <div className="front">
-                <img className="card-img-top" src="http://is2.mzstatic.com/image/thumb/Music/v4/ae/f9/97/aef9970e-7031-6f03-45d2-a12c0d81383e/source/100x100bb.jpg" alt="album cover"/>
+                <img className="card-img-top" src={props.imagelink} alt="album cover"/>
                 </div>
                 <div className="back">
                 <div className="card-block">
@@ -32,5 +32,5 @@ AlbumRow.defaultProps = {
     artist: 'Artist',
     album: 'Album',
     genre: 'Genre',
-    text: 'adjglkasdgj'
+    imagelink: "http://is2.mzstatic.com/image/thumb/Music/v4/ae/f9/97/aef9970e-7031-6f03-45d2-a12c0d81383e/source/100x100bb.jpg"
 };
