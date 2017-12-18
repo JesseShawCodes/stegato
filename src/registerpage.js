@@ -1,9 +1,6 @@
 import React from 'react';
 // import ContactForm from './search/demo/contact-form';
-
-import Splash from './splash';
 import Footer from './footer';
-import Howto from './howto';
 import Signup from './signup';
 // import registerServiceWorker from './search/demo/registerServiceWorker';
 
@@ -31,11 +28,9 @@ export default function Landingpage() {
 
 */
 
-export default function Landingpage() {
+export default function Registerpage() {
     return (
             <div id="main">
-                <Splash />
-                <Howto />
                 <Signup />
                 <Footer />
             </div>

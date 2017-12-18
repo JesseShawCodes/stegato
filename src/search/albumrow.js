@@ -18,8 +18,11 @@ export default function AlbumRow(props) {
                     <div className="rating">
                     <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                     </div>
+                    </section>
+                    <section className="buttons">   
                     <i className="fa fa-plus" aria-hidden="true" title="Click to add to listen list"></i>
-                    </section>   
+                    <a href={props.buyOnItunes} target="_blank"><i className="fa fa-apple" aria-hidden="true" title="Click to buy on Itunes"></i></a>
+                    </section>
                 </div>
                 </div>                                
             </div>
@@ -32,5 +35,6 @@ AlbumRow.defaultProps = {
     artist: 'Artist',
     album: 'Album',
     genre: 'Genre',
-    imagelink: "http://is2.mzstatic.com/image/thumb/Music/v4/ae/f9/97/aef9970e-7031-6f03-45d2-a12c0d81383e/source/100x100bb.jpg"
+    imagelink: "http://is2.mzstatic.com/image/thumb/Music/v4/ae/f9/97/aef9970e-7031-6f03-45d2-a12c0d81383e/source/100x100bb.jpg",
+    buyOnItunes: "http://www.itunes.com"
 };

@@ -9,11 +9,12 @@ export default function Header() {
                     TMRD
                 </h1>
                 <nav>
-                    <a href="">Home</a>
-                    <a href="search.html">Search</a>
-                    <a href="">Dashboard</a>
-                    <a href="">Login</a>
-                    <a href="">Logout</a>
+                    <a href="/">Home</a>
+                    <a href="/search">Search</a>
+                    <a href="/dashboard">Dashboard</a>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                    <a href="/logout">Logout</a>
                 </nav>
             </div>
         </header>

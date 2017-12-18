@@ -199,3 +199,16 @@ section.rating-add {
     padding: 0px;
     float: left;
 }
+
+/************Search Button***************/
+.submit-artist{
+    width: 300px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 0px auto;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inherit;
+}
