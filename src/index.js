@@ -7,7 +7,8 @@ import Loginpage from './loginpage';
 import Registerpage from './registerpage.js';
 import Searchpage from './search/searchpage';
 import Logoutpage from './logout/logoutpage';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Dashboardpage from './dashboard/dashboard';
 
 
 ReactDOM.render(
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route exact path="/register" component={Registerpage} />
             <Route exact path="/search" component={Searchpage} />
             <Route exact path="/logout" component={Logoutpage} />
+            <Route exact path="/dashboard" component={Dashboardpage} />
         </div>
     </main>
     </Router>, 
