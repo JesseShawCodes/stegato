@@ -1,21 +1,28 @@
 import {search} from './star-wars';
 
-export const SEARCH_ITUNES = 'SEARCH_ITUNES';
-export const search = () => ({
-    type: SEARCH_ITUNES
+export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
+export const searchItunesRequest = () => ({
+    type: SEARCH_ITUNES_REQUEST
 });
 
 
 export const SEARCH_ITUNES_SUCCESS = 'SEARCH_ITUNES_SUCCESS';
-export const searchCharactersSuccess = albums => ({
+export const searchItunesSuccess = albums => ({
     type: SEARCH_ITUNES_SUCCESS,
     albums
 });
 
 export const SEARCH_ITUNES_ERROR = 'SEARCH_ITUNES_ERROR';
-export const searchCharactersError = error => ({
+export const searchItunesError = error => ({
     type: SEARCH_ITUNES_ERROR,
     error
 });
+
+export const searchItunes = name => dispatch => {
+    dispatch(searchItunesRequest());
+    search(name)
+        .then(albums => dispatch(searchItunesSuccess(albums)))
+        .catch(error => dispatch(searchItunesError(error)));
+};
 
 
