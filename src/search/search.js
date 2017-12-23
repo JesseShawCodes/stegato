@@ -6,6 +6,7 @@ import Input from './input';
 import $ from 'jquery';
 import AlbumRow from './albumrow';
 
+
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
 var cards = [];
@@ -21,11 +22,18 @@ function renderIt(music) {
         let itunes = music[k].collectionViewUrl;
         musicOutput.push(<AlbumRow artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
     }
+    console.log(musicOutput);
+}
+
+export function _renderIt(music) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(renderIt(music)), 500);
+    });
 }
 
 export class Searchsection extends React.Component {
     render() {
-        console.log(musicOutput);
+        // console.log(musicOutput);
         return (
             <div className="search-section">
             <form className="musicsearch"
@@ -47,7 +55,7 @@ export class Searchsection extends React.Component {
         let result = values.name.split(' ').join('+');
         $.getJSON(`${itunesUrl}${result}`, function(data) {
             for (var i = 0; i < data.results.length; i++) {
-                if (values == data.results[i].artistName || data.results[i].wrapperType == "track") {
+                if (values === data.results[i].artistName || data.results[i].wrapperType === "track") {
                     const artistNumber = data.results[i].artistId;
                     $.getJSON(`${albumUrl}${artistNumber}&entity=album`, function(data) {
                         let music = data.results;
@@ -59,6 +67,7 @@ export class Searchsection extends React.Component {
                             cards.push(music[j]);
                         }
                         // console.log(cards.length);
+                        // console.log(cards);
                         renderIt(cards);
                     })
                     break;
