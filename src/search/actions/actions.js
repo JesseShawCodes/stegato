@@ -1,4 +1,4 @@
-import {search} from './star-wars';
+import {search} from './searchfunctions';
 
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
 export const searchItunesRequest = () => ({
@@ -19,6 +19,7 @@ export const searchItunesError = error => ({
 });
 
 export const searchItunes = name => dispatch => {
+    console.log("Searching Itunes API");
     dispatch(searchItunesRequest());
     search(name)
         .then(albums => dispatch(searchItunesSuccess(albums)))

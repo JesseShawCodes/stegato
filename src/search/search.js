@@ -5,14 +5,20 @@ import {reduxForm, Field} from 'redux-form';
 import Input from './input';
 import $ from 'jquery';
 import AlbumRow from './albumrow';
+import Spinner from 'react-spinkit';
+import {searchItunes} from './actions/actions';
+
 
 
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
 var cards = [];
 var musicOutput = [];
-
+/*
 function renderIt(music) {
+    if (music !== undefined) {
+        return <Spinner spinnerName="circle" noFadeIn />;
+    }
     musicOutput = [];
     for (var k = 0; k < music.length; k++) {
         let artistKey = music[k].artistName;
@@ -40,7 +46,7 @@ export class Searchsection extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label /*for="artist"*/>Artist</label>
+                <label for="artist">Artist</label>
                 <Field name="name" id="name" type="text" component={Input} className="searchterm" />
                 <button type="submit" className="submit-artist" disabled={this.props.pristine || this.props.submitting}>Send message</button>
             </form>
@@ -78,8 +84,50 @@ export class Searchsection extends React.Component {
 }
 
 
+const mapStateToProps = state => ({
+    characters: state.characters,
+    loading: state.loading,
+    error: state.error
+});
 
 
+export default reduxForm({
+    form: 'search'
+})(Searchsection);
+*/
+
+export class Searchsection extends React.Component {
+    renderResults() {
+
+    }
+
+    search(e) {
+        e.preventDefault();
+        console.log("Searching...");
+        console.log(this.input.value);
+        if (this.input.value.trim() === '') {
+            return;
+        }
+        this.props.dispatch(searchItunes(this.input.value));
+    }
+
+    render() {
+            // console.log(musicOutput);
+            return (
+                <div className="search-section">
+                <form className="musicsearch"
+                    onSubmit={(e) => this.search(e)}>
+                    <label for="artist">Artist</label>
+                    <Field name="name" id="name" type="text" component={Input} className="searchterm" ref={input => this.input = input}/>
+                    <button type="submit" className="submit-artist" disabled={this.props.pristine || this.props.submitting}>Send message</button>
+                </form>
+                <section className="results">
+                    {musicOutput}
+                </section>
+                </div>
+            );
+    }
+}
 
 export default reduxForm({
     form: 'search'

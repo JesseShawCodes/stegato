@@ -2,7 +2,7 @@ import {
     SEARCH_ITUNES,
     SEARCH_ITUNES_SUCCESS,
     SEARCH_ITUNES_ERROR
-} from './actions';
+} from '../actions/actions';
 
 const initialState = {
     albums: [],
@@ -12,7 +12,7 @@ const initialState = {
 
 
 export const appReducer = (state=initialState, action) => {
-    if (action.type === actions.SEARCH_ITUNES) {
+    if (action.type === action.SEARCH_ITUNES) {
         return Object.assign({}, state, {
             loading: true,
             error: null

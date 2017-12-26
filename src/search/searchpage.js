@@ -10,12 +10,9 @@ import Searchsection from './search';
 
 export default function Searchpage() {
     return (
-            <div id="main">
-                <Provider store={store}>
-                    <Searchsection />
-                </Provider>
-                <Footer />
-            </div>
+        <Provider store={store}>
+            <Searchsection />
+        </Provider>
     );
 }
 

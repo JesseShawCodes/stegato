@@ -7,37 +7,12 @@ import Howto from './howto';
 import Signup from './signup';
 // import registerServiceWorker from './search/demo/registerServiceWorker';
 
-/*
-
-export default function Landingpage() {
-    return (
-        <main>
-            <div className="heading">
-                <Heading />
-            </div>
-            <div id="main">
-                <Splash />
-                <Howto />
-                <Signup />
-                <Login />
-                <Provider store={store}>
-                    <Searchsection />
-                </Provider>
-                <Footer />
-            </div>
-        </main>
-    );
-}
-
-*/
-
 export default function Landingpage() {
     return (
             <div id="main">
                 <Splash />
                 <Howto />
                 <Signup />
-                <Footer />
             </div>
     );
 }

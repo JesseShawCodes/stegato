@@ -9,6 +9,7 @@ import Searchpage from './search/searchpage';
 import Logoutpage from './logout/logoutpage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboardpage from './dashboard/dashboard';
+import Footer from './footer';
 // import {Provider} from 'react-redux';
 // import store from './search/store';
 
@@ -26,6 +27,7 @@ ReactDOM.render(
             <Route exact path="/logout" component={Logoutpage} />
             <Route exact path="/dashboard" component={Dashboardpage} />
         </div>
+        <Footer />
     </main>
     </Router>, 
     document.getElementById('root')
