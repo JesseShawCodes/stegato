@@ -2,7 +2,6 @@ import React from 'react';
 import './search.css';
 import AlbumRow from './albumrow'
 
-
 let music = {
   "resultCount":16,
   "results": [
@@ -22,10 +21,7 @@ let music = {
  {"wrapperType":"collection", "collectionType":"Album", "artistId":1092903, "collectionId":368559138, "amgArtistId":168233, "artistName":"Deftones", "collectionName":"Diamond Eyes", "collectionCensoredName":"Diamond Eyes", "artistViewUrl":"https://itunes.apple.com/us/artist/deftones/1092903?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/diamond-eyes/368559138?uo=4", "artworkUrl60":"http://is5.mzstatic.com/image/thumb/Music/v4/98/76/0f/98760fe5-4229-6886-4710-29c6e4c1329f/source/60x60bb.jpg", "artworkUrl100":"http://is5.mzstatic.com/image/thumb/Music/v4/98/76/0f/98760fe5-4229-6886-4710-29c6e4c1329f/source/100x100bb.jpg", "collectionPrice":9.99, "collectionExplicitness":"cleaned", "contentAdvisoryRating":"Clean", "trackCount":11, "copyright":"℗ 2010 Reprise Records for the U.S. and WEA International Inc. for the world outside the U.S.", "country":"USA", "currency":"USD", "releaseDate":"2010-04-23T07:00:00Z", "primaryGenreName":"Rock"}, 
  {"wrapperType":"collection", "collectionType":"Album", "artistId":1092903, "collectionId":1099863611, "amgArtistId":168233, "artistName":"Deftones", "collectionName":"The Studio Album Collection", "collectionCensoredName":"The Studio Album Collection", "artistViewUrl":"https://itunes.apple.com/us/artist/deftones/1092903?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/the-studio-album-collection/1099863611?uo=4", "artworkUrl60":"http://is3.mzstatic.com/image/thumb/Music49/v4/91/80/99/91809918-aaca-622c-cf85-3d7e2144eca9/source/60x60bb.jpg", "artworkUrl100":"http://is3.mzstatic.com/image/thumb/Music49/v4/91/80/99/91809918-aaca-622c-cf85-3d7e2144eca9/source/100x100bb.jpg", "collectionPrice":49.99, "collectionExplicitness":"explicit", "contentAdvisoryRating":"Explicit", "trackCount":78, "copyright":"℗ This compilation P2016 Reprise Records", "country":"USA", "currency":"USD", "releaseDate":"2016-04-07T07:00:00Z", "primaryGenreName":"Rock"}, 
  {"wrapperType":"collection", "collectionType":"Album", "artistId":1092903, "collectionId":1123759240, "amgArtistId":168233, "artistName":"Deftones", "collectionName":"Prayers / Triangles (Com Truise Remix) - Single", "collectionCensoredName":"Prayers / Triangles (Com Truise Remix) - Single", "artistViewUrl":"https://itunes.apple.com/us/artist/deftones/1092903?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/prayers-triangles-com-truise-remix-single/1123759240?uo=4", "artworkUrl60":"http://is2.mzstatic.com/image/thumb/Music18/v4/2a/68/28/2a682818-5785-4dfd-a165-efff0559ac63/source/60x60bb.jpg", "artworkUrl100":"http://is2.mzstatic.com/image/thumb/Music18/v4/2a/68/28/2a682818-5785-4dfd-a165-efff0559ac63/source/100x100bb.jpg", "collectionPrice":1.29, "collectionExplicitness":"notExplicit", "trackCount":1, "copyright":"℗ 2016 Reprise Records", "country":"USA", "currency":"USD", "releaseDate":"2016-06-24T07:00:00Z", "primaryGenreName":"Electronic"}]
-}
- 
- 
- 
+} 
 
 export default class Searchresults extends React.Component {
     render() {

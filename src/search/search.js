@@ -1,5 +1,6 @@
 import React from 'react';
 import './search.css';
+import {connect} from 'react-redux';
 // import Searchresults from './searchresults';
 import {reduxForm, Field} from 'redux-form';
 import Input from './input';
@@ -98,6 +99,23 @@ export default reduxForm({
 
 export class Searchsection extends React.Component {
     renderResults() {
+        if (this.props.loading) {
+            return <Spinner spinnerName="circle" noFadeIn />;
+        }
+        if (this.props.error) {
+            return <strong>{this.props.error}</strong>;
+        }
+        console.log(this.props)
+        const characters = this.props.characters.map((character, index) =>
+        <li key={index}>{character}</li>
+    );
+
+
+    return (
+        <ul className="character-search-results">
+            Testing
+        </ul>
+    );
 
     }
 
@@ -115,11 +133,10 @@ export class Searchsection extends React.Component {
             // console.log(musicOutput);
             return (
                 <div className="search-section">
-                <form className="musicsearch"
-                    onSubmit={(e) => this.search(e)}>
+                <form className="musicsearch" onSubmit={(e) => this.search(e)}>
                     <label for="artist">Artist</label>
-                    <Field name="name" id="name" type="text" component={Input} className="searchterm" ref={input => this.input = input}/>
-                    <button type="submit" className="submit-artist" disabled={this.props.pristine || this.props.submitting}>Send message</button>
+                    <input type="search" ref={input => this.input = input} />
+                    <button>Search</button>
                 </form>
                 <section className="results">
                     {musicOutput}
@@ -129,6 +146,10 @@ export class Searchsection extends React.Component {
     }
 }
 
-export default reduxForm({
-    form: 'search'
-})(Searchsection);
+const mapStateToProps = state => ({
+    albums: state.albums,
+    loading: state.loading,
+    error: state.error
+});
+
+export default connect(mapStateToProps)(Searchsection);

@@ -9,7 +9,7 @@ import Searchpage from './search/searchpage';
 import Logoutpage from './logout/logoutpage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboardpage from './dashboard/dashboard';
-import Footer from './footer';
+import Footer from './footer/footer';
 // import {Provider} from 'react-redux';
 // import store from './search/store';
 

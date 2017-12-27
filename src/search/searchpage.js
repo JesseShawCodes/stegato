@@ -1,7 +1,6 @@
 import React from 'react';
 // import ContactForm from './search/demo/contact-form';
 import {Provider} from 'react-redux';
-import Footer from '../footer';
 import store from './store';
 import Searchsection from './search';
 
