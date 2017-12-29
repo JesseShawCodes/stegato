@@ -20,12 +20,12 @@ ReactDOM.render(
             <Heading />
         </div>
         <div id="main">
-            <Route exact path="./" component={Landingpage} />
-            <Route exact path="./login" component={Loginpage} />
-            <Route exact path="./register" component={Registerpage} />
-            <Route exact path="./search" component={Searchpage} />
-            <Route exact path="./logout" component={Logoutpage} />
-            <Route exact path="./dashboard" component={Dashboardpage} />
+            <Route exact path="/" component={Landingpage} />
+            <Route exact path="login" component={Loginpage} />
+            <Route exact path="register" component={Registerpage} />
+            <Route exact path="search" component={Searchpage} />
+            <Route exact path="logout" component={Logoutpage} />
+            <Route exact path="dashboard" component={Dashboardpage} />
         </div>
         <Footer />
     </main>
