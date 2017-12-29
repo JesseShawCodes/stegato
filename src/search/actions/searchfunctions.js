@@ -22,7 +22,6 @@ function _search(name) {
                 console.log("it's a match");
                 fetch(`${albumUrl}${artistNumber}&entity=album`).then(res => {
                     console.log(res.json());
-                    // return res.json();
                 }).then(data => console.log(data))
             }
             break

@@ -32,7 +32,6 @@ export default function Registerpage() {
     return (
             <div id="main">
                 <Signup />
-                <Footer />
             </div>
     );
 }

@@ -7,9 +7,9 @@ export default function Login() {
         <h2>Login</h2>
         <div className="login-form">
             <form>
-                <label for="fname">Username</label>
+                <label>Username</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your username.."></input>
-                <label for="fname">Password</label>
+                <label>Password</label>
                 <input type="text" id="fname" name="firstname" placeholder="Your password.."></input>
                 <input type="submit" value="Submit"></input>
             </form>

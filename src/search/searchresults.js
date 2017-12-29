@@ -23,9 +23,8 @@ let music = {
  {"wrapperType":"collection", "collectionType":"Album", "artistId":1092903, "collectionId":1123759240, "amgArtistId":168233, "artistName":"Deftones", "collectionName":"Prayers / Triangles (Com Truise Remix) - Single", "collectionCensoredName":"Prayers / Triangles (Com Truise Remix) - Single", "artistViewUrl":"https://itunes.apple.com/us/artist/deftones/1092903?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/prayers-triangles-com-truise-remix-single/1123759240?uo=4", "artworkUrl60":"http://is2.mzstatic.com/image/thumb/Music18/v4/2a/68/28/2a682818-5785-4dfd-a165-efff0559ac63/source/60x60bb.jpg", "artworkUrl100":"http://is2.mzstatic.com/image/thumb/Music18/v4/2a/68/28/2a682818-5785-4dfd-a165-efff0559ac63/source/100x100bb.jpg", "collectionPrice":1.29, "collectionExplicitness":"notExplicit", "trackCount":1, "copyright":"℗ 2016 Reprise Records", "country":"USA", "currency":"USD", "releaseDate":"2016-06-24T07:00:00Z", "primaryGenreName":"Electronic"}]
 } 
 
-export default class Searchresults extends React.Component {
+export default class Searchresultsstatic extends React.Component {
     render() {
-        console.log(music.results[1].artistName)
         const cards = []
         for (var i = 0; i < music.results.length; i++) {
           if (music.results[i].wrapperType !== "collection") {
@@ -38,10 +37,16 @@ export default class Searchresults extends React.Component {
           let itunes = music.results[i].collectionViewUrl;
           cards.push(<AlbumRow artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
         }
-        console.log(cards)
       return (
+        <div className="search-section">
+        <form className="musicsearch" onSubmit={(e) => this.search(e)}>
+            <label htmlFor="artist">Artist</label>
+            <input type="search" ref={input => this.input = input} />
+            <button>Search</button>
+        </form>
         <div>
           {cards}
+        </div>
         </div>
       );
     }
