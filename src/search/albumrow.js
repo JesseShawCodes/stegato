@@ -21,7 +21,7 @@ export default function AlbumRow(props) {
                     </section>
                     <section className="buttons">   
                     <i className="fa fa-plus" aria-hidden="true" title="Click to add to listen list"></i>
-                    <a href={props.buyOnItunes} target="_blank"><i className="fa fa-apple" aria-hidden="true" title="Click to buy on Itunes"></i></a>
+                    <a href={props.buyOnItunes} target="_blank" alt="Buy on Itunes" role="presentation"><button className="itunes-link"><i className="fa fa-apple" aria-hidden="true" title="Click to buy on Itunes" alt="Buy on Itunes" role="presentation"></i></button></a>
                     </section>
                 </div>
                 </div>                                

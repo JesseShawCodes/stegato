@@ -1,6 +1,6 @@
 import React from 'react';
 // import ContactForm from './search/demo/contact-form';
-import Footer from './footer/footer';
+// import Footer from './footer/footer';
 import Signup from './signup';
 // import registerServiceWorker from './search/demo/registerServiceWorker';
 

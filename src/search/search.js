@@ -9,8 +9,6 @@ import AlbumRow from './albumrow';
 import Spinner from 'react-spinkit';
 import {searchItunes} from './actions/actions';
 
-
-
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
 var cards = [];
