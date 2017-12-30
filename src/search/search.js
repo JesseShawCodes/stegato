@@ -103,13 +103,6 @@ export class Searchsection extends React.Component {
         if (this.props.error) {
             return <strong>{this.props.error}</strong>;
         }
-        /*
-        console.log(this.props)
-        const characters = this.props.characters.map((character, index) =>
-        <li key={index}>{character}</li>
-        
-    );*/
-
 
     return (
         <ul className="character-search-results">
