@@ -2,7 +2,8 @@ import React from 'react';
 // import ContactForm from './search/demo/contact-form';
 import {Provider} from 'react-redux';
 import store from './store';
-import Searchresultsstatic from './searchresults';
+// import Searchresultsstatic from './searchresults';
+import Searchsection from './search';
 
 // import registerServiceWorker from './search/demo/registerServiceWorker';
 
@@ -10,7 +11,7 @@ import Searchresultsstatic from './searchresults';
 export default function Searchpage() {
     return (
         <Provider store={store}>
-            <Searchresultsstatic />
+            <Searchsection />
         </Provider>
     );
 }

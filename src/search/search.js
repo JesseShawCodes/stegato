@@ -8,6 +8,7 @@ import $ from 'jquery';
 import AlbumRow from './albumrow';
 import Spinner from 'react-spinkit';
 import {searchItunes} from './actions/actions';
+import {API_BASE_URL} from './config'
 
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
@@ -96,6 +97,7 @@ export default reduxForm({
 */
 
 export class Searchsection extends React.Component {
+    /*
     renderResults() {
         if (this.props.loading) {
             return <Spinner spinnerName="circle" noFadeIn />;
@@ -111,15 +113,37 @@ export class Searchsection extends React.Component {
     );
 
     }
+    */
+    constructor(props) {
+        super(props);
 
+        this.state = {
+            lists: [],
+            error: null,
+            loading: false
+        };
+    }
     search(e) {
         e.preventDefault();
         console.log("Searching...");
         console.log(this.input.value);
+        fetch(`${API_BASE_URL}/board`, {
+            method: 'POST',
+            headers: {
+                'Artist' : this.input.value
+            }
+        })
+        if (this.input.value.trim() === '') {
+            return;
+        }
+        console.log(this.input.value);
+        this.props.dispatch(searchItunes(this.input.value));
+        /*
         if (this.input.value.trim() === '') {
             return;
         }
         this.props.dispatch(searchItunes(this.input.value));
+        */
     }
 
     render() {
