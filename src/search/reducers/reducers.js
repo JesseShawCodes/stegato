@@ -5,33 +5,33 @@ import {
 } from '../actions/actions';
 
 const initialState = {
-    albums: [],
+    music: [],
     loading: false,
     error: null
 };
 
-
-export const appReducer = (state=initialState, action) => {
+export function musicReducer(state=initialState, action) {
     if (action.type === SEARCH_ITUNES_REQUEST) {
-        console.log("Itunes Searching...");
+        console.log("Search Request has been made")
         return Object.assign({}, state, {
             loading: true,
             error: null
         });
     }
     else if (action.type === SEARCH_ITUNES_SUCCESS) {
-        console.log("Itunes search success!");
+        console.log("Search Success!!")
         return Object.assign({}, state, {
-            albums: action.albums,
+            music: action.music,
             loading: false,
             error: null
         });
     }
     else if (action.type === SEARCH_ITUNES_ERROR) {
+        console.log("Search ERROR!")
         return Object.assign({}, state, {
             error: action.error,
             loading: false
         });
     }
     return state;
-};
+}
