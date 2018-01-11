@@ -13,3 +13,9 @@ const initialState = {
 export function musicReducer(state=initialState, action) {
     console.log("musicReducer")
 }
+
+const rootReducer = combineReducers({
+
+})
+  
+export default rootReducer

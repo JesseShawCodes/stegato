@@ -1,5 +1,5 @@
 import React from 'react';
-import Albumrow from '../search/albumrow';
+import Albumrow from '../search/components/albumrow';
 
 
 let music = {
