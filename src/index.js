@@ -5,8 +5,9 @@ import Heading from './header.js';
 import Landingpage from './landingpage.js';
 import Loginpage from './loginpage';
 import Registerpage from './registerpage.js';
-import Searchpage from './search/searchpage';
+// import Searchpage from './search/searchpage';
 import Logoutpage from './logout/logoutpage';
+import SearchRoot from './search/containers/root';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboardpage from './dashboard/dashboard';
 import Footer from './footer/footer';
@@ -23,7 +24,7 @@ ReactDOM.render(
             <Route exact path="/" component={Landingpage} />
             <Route exact path="/login/" component={Loginpage} />
             <Route exact path="/register/" component={Registerpage} />
-            <Route exact path="/search/" component={Searchpage} />
+            <Route exact path="/search/" component={SearchRoot} />
             <Route exact path="/logout/" component={Logoutpage} />
             <Route exact path="/dashboard/" component={Dashboardpage} />
         </div>

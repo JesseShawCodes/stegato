@@ -1,3 +1,24 @@
+// import search from './searchfunctions'
+import fetch from 'cross-fetch'
+
+export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
+export function searchItunes(searchTerm) {
+    console.log("Search iTunes is running")
+    return {
+      type: SEARCH_ITUNES_REQUEST,
+      searchTerm
+    }
+}
+
+export const REQUEST_MUSIC_FROM_API = 'REQUEST_MUSIC_FROM_API';
+function requestMusic(search) {
+    console.log("Requesting Music Results")
+    return {
+      type: REQUEST_MUSIC_FROM_API,
+      search
+    }
+  }
+
 //Itunes API Links
 var itunesUrl = "https://itunes.apple.com/search?term=";
 var albumUrl = "https://itunes.apple.com/lookup?id=";
@@ -9,7 +30,8 @@ function _search(name) {
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
     fetch(`${itunesUrl}${searchTerm}`).then(function (response){
-      return response.json();
+        console.log(response)
+        return response.json();
     })
     .then(function (json){
         for (var i = 0; i < json.results.length; i++) {
@@ -22,7 +44,7 @@ function _search(name) {
                 return res.json()
             }).then(
                 function(data) {
-                    // console.log(data.results)
+                    console.log(data.results)
                     let music = data.results;
 
                 }
@@ -33,8 +55,9 @@ function _search(name) {
     });
 }
 
-export function search(name) {
+function search(name) {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(_search(name)), 500);
     });
 }
+

@@ -1,6 +1,7 @@
 import React from 'react';
 import './albumrow.css';
 
+
 export default function AlbumRow(props) {
     return (
         <div className="grid-item">

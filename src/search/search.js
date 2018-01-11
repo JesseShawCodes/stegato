@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 // import $ from 'jquery';
 // import AlbumRow from './albumrow';
 // import Spinner from 'react-spinkit';
-import {searchItunes} from './actions/actions';
+import {searchItunes} from './actions';
 // import {API_BASE_URL} from './config'
 
 /*
@@ -19,21 +19,8 @@ var musicOutput = [];
 
 export class Searchsection extends React.Component {
     renderResult() {
-        const albumRerender = "Testing";
-        /*
-        const albumRerender = this.props.album.map((album, index) => 
-            <li key={index}>album</li>
-        )
-        */
-        console.log(this.props);
-
-        return (
-            <section className="results">
-                {albumRerender}
-            </section>
-        );
+        console.log("Result rendering")
     }
-
     search(e) {
         e.preventDefault();
         console.log("Searching...");
@@ -61,9 +48,9 @@ export class Searchsection extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    music: state.music,
-    loading: state.loading,
-    error: state.error
+    music: "music",
+    loading: "loading",
+    error: "error"
 });
 
 
