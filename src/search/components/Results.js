@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Albumrow from './albumrow'
 
 export default class Results extends Component {
   render() {
     return (
       <ul>
-        {this.props.posts.map((post, i) => <li key={i}>{post.title}</li>)}
+        <Albumrow />
       </ul>
     )
   }

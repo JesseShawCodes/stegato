@@ -1,23 +1,26 @@
 // import search from './searchfunctions'
 import fetch from 'cross-fetch'
 
+export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
+
 export function searchItunes(searchTerm) {
     console.log("Search iTunes is running")
+    console.log(`Searching for ${searchTerm}`)
     return {
       type: SEARCH_ITUNES_REQUEST,
       searchTerm
     }
 }
 
-export const REQUEST_MUSIC_FROM_API = 'REQUEST_MUSIC_FROM_API';
-function requestMusic(search) {
-    console.log("Requesting Music Results")
+export function receiveMusic(search, json) {
+    console.log("Receiving Music from API")
     return {
-      type: REQUEST_MUSIC_FROM_API,
-      search
+      type: RECEIVE_MUSIC_FROM_API,
+      search,
+      posts: json.data.children.map(child => child.data)
     }
-  }
+}
 
 //Itunes API Links
 var itunesUrl = "https://itunes.apple.com/search?term=";

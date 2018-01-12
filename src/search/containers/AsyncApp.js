@@ -8,22 +8,27 @@ import Results from '../components/Results'
 class AsyncApp extends Component {
     constructor(props) {
         super(props)
-        this.handleChange = this.handleChange.bind(this)
-        this.handleRefreshClick = this.handleRefreshClick.bind(this)
+    }
+
+    componentDidMount() {
+        const { dispatch, searchTerm } = this.props
     }
 
     render() {
         return (
         <section>
             <Searchform />
-            <Results />
+            <Results props={"testing"}/>
         </section>
         )
     }
 }
 
 AsyncApp.propTypes = {
-
+    searchTerm: PropTypes.string.isRequired,
+    results: PropTypes.array.isRequired,
+    isFetching: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {

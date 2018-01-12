@@ -1,16 +1,10 @@
 import { combineReducers } from 'redux'
 import {
-    SEARCH_ITUNES_REQUEST,
-    REQUEST_MUSIC_FROM_API
+    RECEIVE_MUSIC_FROM_API,
+    SEARCH_ITUNES_REQUEST
 } from './actions';
 
-const initialState = {
-    music: [],
-    loading: false,
-    error: null
-};
-
-export function musicReducer(state=initialState, action) {
+export function musicReducer(action) {
     console.log("musicReducer")
 }
 

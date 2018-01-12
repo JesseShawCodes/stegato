@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 export default class Searchform extends Component {
+    search(e) {
+        e.preventDefault()
+        console.log(`Search for ${e}`)
+    }
+
     render() {
         return (
             <div className="search-section">
