@@ -15,7 +15,7 @@ $(".musicsearch").on("submit", function(e) {
                     for (var i = 1; i < data.results.length; i++) {
                         $("#results").append(`
                         <div class="grid-item">
-                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                        <div class="flip-container" onTouchStart="this.classList.toggle('hover');">
                             <div class="flipper">
                                 <div class="front">
                                 <img class="card-img-top" src="${data.results[i].artworkUrl100}">

@@ -4,7 +4,7 @@ import fetch from 'cross-fetch'
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
 
-export function searchItunes(searchTerm) {
+export function searchItunesRequest(searchTerm) {
     console.log("Search iTunes is running")
     console.log(`Searching for ${searchTerm}`)
     return {
@@ -58,9 +58,13 @@ function _search(name) {
     });
 }
 
-function search(name) {
+export function search(name) {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(_search(name)), 500);
     });
 }
+
+export const searchItunes = name => dispatch => {
+    console.log(name)
+};
 

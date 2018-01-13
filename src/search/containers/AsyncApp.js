@@ -6,33 +6,22 @@ import Searchform from '../components/Searchform'
 import Results from '../components/Results'
 
 class AsyncApp extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    componentDidMount() {
-        const { dispatch, searchTerm } = this.props
-    }
-
     render() {
         return (
         <section>
             <Searchform />
-            <Results props={"testing"}/>
+            <Results />
         </section>
         )
     }
 }
 
 AsyncApp.propTypes = {
-    searchTerm: PropTypes.string.isRequired,
-    results: PropTypes.array.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    music: PropTypes.array,
+    loading: PropTypes.bool,
+    error: PropTypes.bool
 }
 
-function mapStateToProps(state) {
-    console.log("State");
-}
 
-export default connect(mapStateToProps)(AsyncApp)
+export default AsyncApp
+// export default connect(mapStateToProps)(AsyncApp)

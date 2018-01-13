@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import {searchItunes} from '../actions'
 
-export default class Searchform extends Component {
+export class Searchform extends React.Component {
     search(e) {
-        e.preventDefault()
-        console.log(`Search for ${e}`)
+        e.preventDefault();
+        if (this.input.value.trim() === '') {
+            return;
+        }
+        this.props.dispatch(searchItunes(this.input.value));
     }
 
     render() {
@@ -18,3 +23,11 @@ export default class Searchform extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    music: state.music,
+    loading: state.loading,
+    error: state.error
+});
+
+export default connect(mapStateToProps)(Searchform);
