@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import {searchItunes} from '../actions'
 
 export class Searchform extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+
     search(e) {
         e.preventDefault();
         if (this.input.value.trim() === '') {
@@ -30,4 +35,4 @@ const mapStateToProps = state => ({
     error: state.error
 });
 
-export default connect(mapStateToProps)(Searchform);
+export default Searchform

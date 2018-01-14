@@ -3,24 +3,21 @@ import fetch from 'cross-fetch'
 
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
+export const SEARCH_MUSIC_ERROR = 'SEARCH_MUSIC_ERROR';
 
-export function searchItunesRequest(searchTerm) {
-    console.log("Search iTunes is running")
-    console.log(`Searching for ${searchTerm}`)
-    return {
-      type: SEARCH_ITUNES_REQUEST,
-      searchTerm
-    }
-}
+export const searchMusicRequest = () => ({
+    type: SEARCH_ITUNES_REQUEST
+});
 
-export function receiveMusic(search, json) {
-    console.log("Receiving Music from API")
-    return {
-      type: RECEIVE_MUSIC_FROM_API,
-      search,
-      posts: json.data.children.map(child => child.data)
-    }
-}
+export const searchMusicSuccess = music => ({
+    type: RECEIVE_MUSIC_FROM_API,
+    music
+});
+
+export const searchMusicError = error => ({
+    type: SEARCH_MUSIC_ERROR,
+    error
+});
 
 //Itunes API Links
 var itunesUrl = "https://itunes.apple.com/search?term=";
@@ -65,6 +62,10 @@ export function search(name) {
 }
 
 export const searchItunes = name => dispatch => {
-    console.log(name)
+    console.log(`Searching for ${name}`)
+    dispatch(searchMusicRequest());
+    search(name)
+        .then(music => dispatch(searchMusicSuccess(music)))
+        .catch(error => dispatch(searchMusicError(error)));
 };
 
