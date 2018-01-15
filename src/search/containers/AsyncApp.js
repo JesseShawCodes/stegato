@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import {searchItunes} from '../actions'
+import { connect } from 'react-redux';
+import {searchItunes} from '../actions';
 // import Searchform from '../components/Searchform'
 // import Results from '../components/Results'
+import Spinner from 'react-spinkit';
 
 export class AsyncApp extends React.Component {
     renderResults() {
-
+        if (this.props.loading) {
+            return <Spinner fadeIn="none" />;
+        }
+        if (this.props.error) {
+            return <strong>{this.props.error}</strong>;
+        }
+        if (this.props.music === undefined) {
+            return <h1>There is a problem reading results from the API</h1>
+        }
     }
 
     search(e) {

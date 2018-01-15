@@ -1,6 +1,7 @@
 // import search from './searchfunctions'
 import fetch from 'cross-fetch'
-
+import musicReducer from './reducers';
+// import musicReducer from './reducers';
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
 export const SEARCH_MUSIC_ERROR = 'SEARCH_MUSIC_ERROR';
@@ -30,7 +31,7 @@ function _search(name) {
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
     fetch(`${itunesUrl}${searchTerm}`).then(function (response){
-        console.log(response)
+        // console.log(response)
         return response.json();
     })
     .then(function (json){
@@ -44,15 +45,15 @@ function _search(name) {
                 return res.json()
             }).then(
                 function(data) {
-                    console.log(data.results)
                     let music = data.results;
-
+                    console.log(music)
+                    return music
                 }
             )
           }
           break
         }
-    });
+    })
 }
 
 export function search(name) {
@@ -62,10 +63,16 @@ export function search(name) {
 }
 
 export const searchItunes = name => dispatch => {
-    console.log(`Searching for ${name}`)
+    // console.log(`Searching for ${name}`)
     dispatch(searchMusicRequest());
     search(name)
-        .then(music => dispatch(searchMusicSuccess(music)))
+        .then(
+            function(music) {
+                console.log(music)
+                dispatch(searchMusicSuccess(music))
+            }
+            // music => dispatch(searchMusicSuccess(music))
+        )
         .catch(error => dispatch(searchMusicError(error)));
 };
 
