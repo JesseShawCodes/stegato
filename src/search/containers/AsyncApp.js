@@ -44,7 +44,6 @@ export class AsyncApp extends React.Component {
 
     search(e) {
         e.preventDefault();
-        console.log(this.input.value)
         if (this.input.value.trim() === '') {
             return;
         }

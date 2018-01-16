@@ -1,8 +1,4 @@
-// import search from './searchfunctions'
 import fetch from 'cross-fetch'
-// import musicReducer from './reducers';
-import { setTimeout } from 'timers';
-// import musicReducer from './reducers';
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
 export const SEARCH_MUSIC_ERROR = 'SEARCH_MUSIC_ERROR';
@@ -32,7 +28,6 @@ function _search(name) {
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
     return fetch(`${itunesUrl}${searchTerm}`).then(function (response){
-        // console.log(response)
         return response.json();
     })
     .then(function (json){
@@ -48,7 +43,6 @@ function _search(name) {
             .then(
                 function(data) {
                     data.results.map(music => music)
-                    console.log(data)
                     return data.results
                 }
             )
@@ -57,7 +51,7 @@ function _search(name) {
         }
     })
 }
-/*
+
 function search(name) {
     return new Promise((resolve, reject) => {
         // console.log(_search(name))
@@ -65,18 +59,15 @@ function search(name) {
         // setTimeout(() => resolve(_search(name)), 300);
     });
 }
-*/
+
 
 export const searchItunes = name => dispatch => {
-    console.log(`searchItunes is running`)
     dispatch(searchMusicRequest());
-    _search(name)
+    search(name)
         .then(
                 function(data) {
-                    console.log(data)
                     dispatch(searchMusicSuccess(data))
                 }
-            // music => dispatch(searchMusicSuccess(music))
         )
         .catch(error => dispatch(searchMusicError(error)));
 };

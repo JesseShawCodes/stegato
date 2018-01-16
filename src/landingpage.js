@@ -2,7 +2,7 @@ import React from 'react';
 // import ContactForm from './search/demo/contact-form';
 import Splash from './splash';
 import Howto from './howto';
-import Signup from './signup';
+import Signup from './auth/register/signup'
 // import registerServiceWorker from './search/demo/registerServiceWorker';
 
 export default function Landingpage() {

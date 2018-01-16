@@ -5,7 +5,7 @@ import './albumrow.css';
 export default function AlbumRow(props) {
     return (
         <div className="grid-item">
-        <div className="flip-container" onTouchStart="this.classList.toggle('hover');">
+        <div className="flip-container" >
             <div className="flipper">
                 <div className="front">
                 <img className="card-img-top" src={props.imagelink} alt="album cover"/>
