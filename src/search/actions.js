@@ -1,6 +1,7 @@
 // import search from './searchfunctions'
 import fetch from 'cross-fetch'
-import musicReducer from './reducers';
+// import musicReducer from './reducers';
+import { setTimeout } from 'timers';
 // import musicReducer from './reducers';
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
@@ -30,7 +31,7 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    fetch(`${itunesUrl}${searchTerm}`).then(function (response){
+    return fetch(`${itunesUrl}${searchTerm}`).then(function (response){
         // console.log(response)
         return response.json();
     })
@@ -38,16 +39,17 @@ function _search(name) {
         for (var i = 0; i < json.results.length; i++) {
           if (json.results[i].artistName === artist) {
             let artistId = json.results[i].artistId
-            fetch(`${albumUrl}${artistId}&entity=album`).then(function(res) {
+            return fetch(`${albumUrl}${artistId}&entity=album`).then(function(res) {
                 if (!res.ok) {
                     return Promise.reject(res.statusText);
                 }
                 return res.json()
-            }).then(
+            })
+            .then(
                 function(data) {
-                    let music = data.results;
-                    console.log(music)
-                    return music
+                    data.results.map(music => music)
+                    console.log(data)
+                    return data.results
                 }
             )
           }
@@ -55,22 +57,25 @@ function _search(name) {
         }
     })
 }
-
-export function search(name) {
+/*
+function search(name) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => resolve(_search(name)), 500);
+        // console.log(_search(name))
+        resolve(_search(name))
+        // setTimeout(() => resolve(_search(name)), 300);
     });
 }
+*/
 
 export const searchItunes = name => dispatch => {
-    // console.log(`Searching for ${name}`)
+    console.log(`searchItunes is running`)
     dispatch(searchMusicRequest());
-    search(name)
+    _search(name)
         .then(
-            function(music) {
-                console.log(music)
-                dispatch(searchMusicSuccess(music))
-            }
+                function(data) {
+                    console.log(data)
+                    dispatch(searchMusicSuccess(data))
+                }
             // music => dispatch(searchMusicSuccess(music))
         )
         .catch(error => dispatch(searchMusicError(error)));

@@ -6,9 +6,11 @@ import {searchItunes} from '../actions';
 // import Searchform from '../components/Searchform'
 // import Results from '../components/Results'
 import Spinner from 'react-spinkit';
+import Albumrow from '../components/albumrow'
 
 export class AsyncApp extends React.Component {
     renderResults() {
+        console.log(this.props.music)
         if (this.props.loading) {
             return <Spinner fadeIn="none" />;
         }
@@ -17,7 +19,22 @@ export class AsyncApp extends React.Component {
         }
         if (this.props.music === undefined) {
             return <h1>There is a problem reading results from the API</h1>
+        };
+
+        const music = []
+        for (var i = 0; i < this.props.music.length; i++) {
+            music[i] = <Albumrow key={i} 
+                                artist={this.props.music[i].artistName} 
+                                album={this.props.music[i].collectionName}
+                                genre={this.props.music[i].primaryGenreName} 
+                                imagelink={this.props.music[i].artworkUrl100}
+                        />
         }
+
+        return (
+            <h1>{music}</h1>
+        )
+        
     }
 
     search(e) {

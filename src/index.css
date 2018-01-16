@@ -2,3 +2,23 @@
     width: 200px;
     display: inline-table;
 }
+
+form.musicsearch {
+    display: inline-block;
+    margin: 0px auto;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.search-section {
+    text-align: center;
+}
+
+strong {
+    display: inherit;
+}
+
+h1 {
+    text-align: left;
+}
