@@ -1,11 +1,12 @@
 import React from 'react';
 import Signup from '../register/signup';
+import store from '../store.js'
 
 export default function Registerpage() {
     return (
-            <div id="main">
+            <Provider store={store}>
                 <Signup />
-            </div>
+            </Provider>
     );
 }
 
