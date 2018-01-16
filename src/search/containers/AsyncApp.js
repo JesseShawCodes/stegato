@@ -10,7 +10,6 @@ import Albumrow from '../components/albumrow'
 
 export class AsyncApp extends React.Component {
     renderResults() {
-        console.log(this.props.music)
         if (this.props.loading) {
             return <Spinner fadeIn="none" />;
         }
@@ -23,16 +22,22 @@ export class AsyncApp extends React.Component {
 
         const music = []
         for (var i = 0; i < this.props.music.length; i++) {
+            if (this.props.music[i].collectionName === undefined) {
+                continue
+            }
             music[i] = <Albumrow key={i} 
                                 artist={this.props.music[i].artistName} 
                                 album={this.props.music[i].collectionName}
                                 genre={this.props.music[i].primaryGenreName} 
                                 imagelink={this.props.music[i].artworkUrl100}
+                                buyOnItunes={this.props.music[i].collectionViewUrl}
                         />
         }
 
         return (
-            <h1>{music}</h1>
+            <div>
+            {music}
+            </div>
         )
         
     }
