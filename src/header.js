@@ -6,7 +6,7 @@ export default function Header() {
         <header>
             <div className="container clearfix">
                 <h1 id="logo">
-                    TMRD
+                    Stegato
                 </h1>
                 <nav>
                     <a href="/">Home</a>

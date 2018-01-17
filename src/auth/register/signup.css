@@ -34,3 +34,13 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+.already-user {
+    margin: 20px 0px 20px 0px;
+}
+
+.form-error {
+    background-color: red;
+    width: 200px;
+    margin: 0px auto;
+}
+

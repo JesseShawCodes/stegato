@@ -2,38 +2,63 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import Input from '../input'
+import {registerUser} from '../actions/users';
+import {login} from '../actions/auth';
+
 
 export class Signup extends React.Component {
     onSubmit(values) {
-        console.log(values);
-    }
-    render() {
-        return (
-            <section className="signup-form-section">
-            <h2>Sign Up</h2>
-            <div className="signup-form">
-                <form>
-                    <label htmlFor="fname">First Name</label>
-                    <Field component={Input} id="fname" name="firstname" placeholder="Your name.." />
-                    <label htmlFor="lname">Last Name</label>
-                    <Field component={Input} id="lname" name="lastname" placeholder="Your last name.." />
-                    <label htmlFor="fname">Username</label>
-                    <Field component={Input} id="fname" name="firstname" placeholder="Your username.." />
-                    <label htmlFor="lname">Email</label>
-                    <Field component={Input} id="lname" name="lastname" placeholder="Your email.." />
-                    <label htmlFor="fname">Password</label>
-                    <Field component={Input} id="fname" name="firstname" placeholder="Your password.." />
-                    <label htmlFor="lname">Confirm Password</label>
-                    <Field component={Input} id="lname" name="lastname" placeholder="Your password again.." />
-                    <input type="submit" value="Submit" />
-                </form>
-            </div>
-            </section>
-        );
+        const {username, password, firstName, lastName} = values;
+        const user = {username, password, firstName, lastName};
+        return this.props
+            .dispatch(registerUser(user))
+            .then(() => this.props.dispatch(login(username, password)));
     }
 
+    render() {
+        return (
+            <form
+                className="login-form"
+                onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+                )}>
+                <label htmlFor="firstName">First name</label>
+                <Field component={Input} type="text" name="firstName" validate={[required, nonEmpty, isTrimmed]}/>
+                <label htmlFor="lastName">Last name</label>
+                <Field component={Input} type="text" name="lastName" validate={[required, nonEmpty, isTrimmed]}/>
+                <label htmlFor="username">Username</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="username"
+                    validate={[required, nonEmpty, isTrimmed]}
+                />
+                <label htmlFor="password">Password</label>
+                <Field
+                    component={Input}
+                    type="password"
+                    name="password"
+                    validate={[required, length({min: 10, max: 72}), isTrimmed]}
+                />
+                <label htmlFor="passwordConfirm">Confirm password</label>
+                <Field
+                    component={Input}
+                    type="password"
+                    name="passwordConfirm"
+                    validate={[required, nonEmpty, matches('password')]}
+                />
+                <button
+                    type="submit"
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Register
+                </button>
+            </form>
+        );
+    }
 }
 
 export default reduxForm({
-    form: 'signup'
+    form: 'registration',
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('registration', Object.keys(errors)[0]))
 })(Signup);
