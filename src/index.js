@@ -11,14 +11,20 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboardpage from './dashboard/dashboard';
 import Footer from './footer/footer';
 import Registerroot from './auth/register/root';
+import { Provider } from 'react-redux'
+import store from './auth/store'
 // import {Provider} from 'react-redux';
 // import store from './search/store';
+
+
 
 ReactDOM.render(
     <Router>
     <main>
         <div className="heading">
+        <Provider store={store}>
             <Heading />
+        </Provider>
         </div>
         <div id="main">
             <Route exact path="/" component={Landingpage} />
