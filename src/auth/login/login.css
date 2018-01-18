@@ -42,3 +42,7 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+form.login-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

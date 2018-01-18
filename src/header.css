@@ -60,3 +60,7 @@ header.smaller h1#logo {
 header.smaller nav a {
   line-height: 75px; 
 }
+
+a.logo {
+  text-decoration: none;
+}

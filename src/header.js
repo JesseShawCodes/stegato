@@ -15,14 +15,16 @@ export class Heading extends React.Component {
         let logOutButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <a href="/logout" onClick={() => this.logOut()}>Logout</a>
             );
         }
         return (
         <header>
             <div className="container clearfix">
                 <h1 id="logo">
+                    <a href="/" className="logo">
                     Stegato
+                    </a>
                 </h1>
                 <nav>
                     <a href="/">Home</a>

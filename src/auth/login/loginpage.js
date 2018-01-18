@@ -8,7 +8,6 @@ export default function Loginpage() {
     return (
             <div id="main">
                 <Login />
-                <Footer />
             </div>
     );
 }

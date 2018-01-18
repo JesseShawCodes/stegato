@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import {searchItunes} from '../actions'
+import './Searchform.css';
 
 export class Searchform extends React.Component {
     constructor(props) {
@@ -20,9 +21,9 @@ export class Searchform extends React.Component {
         return (
             <div className="search-section">
             <form className="musicsearch" onSubmit={(e) => this.search(e)}>
-                <label htmlFor="artist">Artist</label>
+                <label htmlFor="artist" className="artist-label">Artist</label>
                 <input type="search" ref={input => this.input = input} />
-                <button>Search</button>
+                <button className="search-button">Search</button>
             </form>
             </div>
         )
