@@ -5,10 +5,10 @@ import {loadAuthToken} from './localstorage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
-// import { createLogger } from 'redux-logger'
+import { createLogger } from 'redux-logger'
 
 
-// const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger()
 
 const store = createStore(
     combineReducers({

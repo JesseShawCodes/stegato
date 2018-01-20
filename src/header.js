@@ -14,12 +14,22 @@ export class Heading extends React.Component {
     render() {
         let logOutButton;
         let dashboardButton;
+        let loginButton;
+        let registerButton;
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/logout" onClick={() => this.logOut()}>Logout</a>
             );
             dashboardButton = (
                 <a href="/dashboard">Dashboard</a>
+            );
+        }
+        else {
+            loginButton = (
+                <a href="/login">Login</a>
+            );
+            registerButton = (
+                <a href="/register">Register</a>
             );
         }
         return (
@@ -34,8 +44,8 @@ export class Heading extends React.Component {
                     <a href="/">Home</a>
                     <a href="/search">Search</a>
                     {dashboardButton}
-                    <a href="/login">Login</a>
-                    <a href="/register">Register</a>
+                    {loginButton}
+                    {registerButton}
                     {logOutButton}
                 </nav>
             </div>

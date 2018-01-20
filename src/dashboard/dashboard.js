@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import requiresLogin from '../auth/requires-login';
+import {fetchProtectedData} from '../auth/actions/protected-data';
 import Albumrow from '../search/components/albumrow';
 import './dashboard.css';
 
@@ -23,25 +26,35 @@ let music = {
    {"wrapperType":"collection", "collectionType":"Album", "artistId":35888604, "collectionId":1286314406, "amgArtistId":362101, "artistName":"Four Tet", "collectionName":"There Is Love in You (Expanded Edition)", "collectionCensoredName":"There Is Love in You (Expanded Edition)", "artistViewUrl":"https://itunes.apple.com/us/artist/four-tet/35888604?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/there-is-love-in-you-expanded-edition/1286314406?uo=4", "artworkUrl60":"http://is4.mzstatic.com/image/thumb/Music118/v4/35/fc/e1/35fce13b-9f01-cf91-1f2d-752c42197021/source/60x60bb.jpg", "artworkUrl100":"http://is4.mzstatic.com/image/thumb/Music118/v4/35/fc/e1/35fce13b-9f01-cf91-1f2d-752c42197021/source/100x100bb.jpg", "collectionExplicitness":"notExplicit", "trackCount":18, "copyright":"℗ 2010 Text Records", "country":"USA", "currency":"USD", "releaseDate":"2010-01-25T08:00:00Z", "primaryGenreName":"Electronic"} 
 ]}
 
-export default class Dashboardpage extends React.Component {
-    render() {
-        // console.log(music.results[1].artistName)
-        const cards = []
-        for (var i = 0; i < music.results.length; i++) {
-          if (music.results[i].wrapperType !== "collection") {
-            continue;
-          }
-          let artistKey = music.results[i].artistName;
-          let albumKey = music.results[i].collectionName;
-          let genreKey = music.results[i].primaryGenreName;
-          let imageKey = music.results[i].artworkUrl100;
-          let itunes = music.results[i].collectionViewUrl;
-          cards.push(<Albumrow key={i} artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
+export function Dashboardpage(props) {
+      console.log(props.username)
+      // console.log(music.results[1].artistName)
+      const cards = []
+      for (var i = 0; i < music.results.length; i++) {
+        if (music.results[i].wrapperType !== "collection") {
+          continue;
         }
+        let artistKey = music.results[i].artistName;
+        let albumKey = music.results[i].collectionName;
+        let genreKey = music.results[i].primaryGenreName;
+        let imageKey = music.results[i].artworkUrl100;
+        let itunes = music.results[i].collectionViewUrl;
+        cards.push(<Albumrow key={i} artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
+      }
       return (
         <div>
           {cards}
         </div>
       );
-    }
+
 }
+
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName} ${currentUser.lastName}`
+    };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Dashboardpage));

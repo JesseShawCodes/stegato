@@ -6,12 +6,12 @@ import Landingpage from './landingpage.js';
 import Logoutpage from './auth/logout/logoutpage';
 import SearchRoot from './search/containers/root';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Dashboardpage from './dashboard/dashboard';
 import Footer from './footer/footer';
 import Registerroot from './auth/register/root';
 import { Provider } from 'react-redux'
 import store from './auth/store'
 import Loginroot from './auth/login/root';
+import Dashboardroot from './dashboard/root';
 
 
 ReactDOM.render(
@@ -28,7 +28,7 @@ ReactDOM.render(
             <Route exact path="/register/" component={Registerroot} />
             <Route exact path="/search/" component={SearchRoot} />
             <Route exact path="/logout/" component={Logoutpage} />
-            <Route exact path="/dashboard/" component={Dashboardpage} />
+            <Route exact path="/dashboard/" component={Dashboardroot} />
         </div>
         <Footer />
     </main>
