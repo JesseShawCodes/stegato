@@ -4,10 +4,11 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from '../input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
+import {Redirect} from 'react-router-dom';
 
 export class Login extends React.Component {
     onSubmit(values) {
-        console.log(values)
+        console.log("Logging in from Login Component")
         return this.props.dispatch(login(values.username, values.password));
     }
 
@@ -19,6 +20,9 @@ export class Login extends React.Component {
                     {this.props.error}
                 </div>
             );
+        }
+        if (this.props.loggedIn) {
+            return <Redirect to="/search" />;
         }
         return (
             <form

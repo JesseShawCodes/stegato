@@ -1,10 +1,6 @@
-// import React, { Component } from 'react';
 import React from 'react';
-// import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import {searchItunes} from '../actions';
-// import Searchform from '../components/Searchform'
-// import Results from '../components/Results'
 import Spinner from 'react-spinkit';
 import Albumrow from '../components/albumrow'
 
@@ -71,5 +67,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AsyncApp);
-
-// export default connect(mapStateToProps)(AsyncApp)

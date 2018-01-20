@@ -17,7 +17,7 @@ export default function AlbumRow(props) {
                     <p className="text-bold">{props.genre}</p>
                     <section className="rating-add">
                     <div className="rating">
-                    <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    <span className="one-star">☆</span><span className="two-star">☆</span><span className="three-star">☆</span><span className="four-star">☆</span><span className="five-star">☆</span>
                     </div>
                     </section>
                     <section className="buttons">   

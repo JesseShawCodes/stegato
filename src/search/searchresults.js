@@ -1,5 +1,4 @@
 import React from 'react';
-import './search.css';
 import AlbumRow from './albumrow'
 
 let music = {

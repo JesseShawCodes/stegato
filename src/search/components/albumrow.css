@@ -63,12 +63,7 @@ h5 {
     border: 1px solid rgba(0, 0, 0, .05);
 }
 
-
-
-.rating > span:hover:before {
-    content: "\2605";
-    position: absolute;
-}
+/*Star Ratings*/
 
 .rating {
     unicode-bidi: bidi-override;

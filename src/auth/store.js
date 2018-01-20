@@ -5,6 +5,10 @@ import {loadAuthToken} from './localstorage';
 import authReducer from './reducers/auth';
 import protectedDataReducer from './reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
+// import { createLogger } from 'redux-logger'
+
+
+// const loggerMiddleware = createLogger()
 
 const store = createStore(
     combineReducers({
@@ -12,7 +16,10 @@ const store = createStore(
         auth: authReducer,
         protectedData: protectedDataReducer
     }),
-    applyMiddleware(thunk)
+    applyMiddleware(
+        thunk
+        // loggerMiddleware
+    )
 );
 
 // Hydrate the authToken from localStorage if it exist

@@ -13,9 +13,13 @@ export class Heading extends React.Component {
 
     render() {
         let logOutButton;
+        let dashboardButton;
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/logout" onClick={() => this.logOut()}>Logout</a>
+            );
+            dashboardButton = (
+                <a href="/dashboard">Dashboard</a>
             );
         }
         return (
@@ -29,7 +33,7 @@ export class Heading extends React.Component {
                 <nav>
                     <a href="/">Home</a>
                     <a href="/search">Search</a>
-                    <a href="/dashboard">Dashboard</a>
+                    {dashboardButton}
                     <a href="/login">Login</a>
                     <a href="/register">Register</a>
                     {logOutButton}

@@ -54,9 +54,7 @@ function _search(name) {
 
 function search(name) {
     return new Promise((resolve, reject) => {
-        // console.log(_search(name))
         resolve(_search(name))
-        // setTimeout(() => resolve(_search(name)), 300);
     });
 }
 
