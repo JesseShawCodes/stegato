@@ -12,6 +12,7 @@ export class Heading extends React.Component {
     }
 
     render() {
+        let user = this.props.name;
         let logOutButton;
         let dashboardButton;
         let loginButton;
@@ -55,7 +56,8 @@ export class Heading extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    name: state.auth.currentUser
 });
 
 export default connect(mapStateToProps)(Heading);
