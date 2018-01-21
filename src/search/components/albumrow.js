@@ -1,8 +1,10 @@
 import React from 'react';
 import './albumrow.css';
-
+import Rating from './rating'
 
 export default function AlbumRow(props) {
+    var ratings = <Rating ratings={props.rating} />
+
     return (
         <div className="grid-item">
         <div className="flip-container" >
@@ -16,9 +18,7 @@ export default function AlbumRow(props) {
                     <h5 className="text-bold">{props.album}</h5>
                     <p className="text-bold">{props.genre}</p>
                     <section className="rating-add">
-                    <div className="rating">
-                    <span className="one-star">☆</span><span className="two-star">☆</span><span className="three-star">☆</span><span className="four-star">☆</span><span className="five-star">☆</span>
-                    </div>
+                    {ratings}
                     </section>
                     <section className="buttons">   
                     <i className="fa fa-plus" aria-hidden="true" title="Click to add to listen list"></i>
