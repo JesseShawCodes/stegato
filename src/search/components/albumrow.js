@@ -3,7 +3,7 @@ import './albumrow.css';
 import Rating from './rating'
 
 export default function AlbumRow(props) {
-    var ratings = <Rating ratings={props.rating} />
+    var ratings = <Rating Artist={props.artist} Album={props.album} Genre={props.genre} Artwork={props.imagelink} buyOnItunes={props.buyOnItunes} />
 
     return (
         <div className="grid-item">
@@ -17,11 +17,8 @@ export default function AlbumRow(props) {
                     <h5 className="text-bold">{props.artist}</h5>
                     <h5 className="text-bold">{props.album}</h5>
                     <p className="text-bold">{props.genre}</p>
-                    <section className="rating-add">
                     {ratings}
-                    </section>
-                    <section className="buttons">   
-                    <i className="fa fa-plus" aria-hidden="true" title="Click to add to listen list"></i>
+                    <section className="buttons"> 
                     <a href={props.buyOnItunes} target="_blank" alt="Buy on Itunes" role="presentation"><button className="itunes-link"><i className="fa fa-apple" aria-hidden="true" title="Click to buy on Itunes" alt="Buy on Itunes" role="presentation"></i></button></a>
                     </section>
                 </div>
