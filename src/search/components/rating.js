@@ -49,13 +49,32 @@ export default class Rating extends React.Component {
         console.log(this.state.rating)
     }
 
+    submitRating(input) {
+        console.log("Submitting Rating")
+        console.log(input)
+    }
+
     reRender() {
         let submit
+        var submission = {
+            artist: this.props.Artist,
+            album: this.props.Album,
+            genre: this.props.Genre,
+            rating: this.state.rating,
+            artwork: this.props.Artwork,
+            itunesLink: this.props.buyOnItunes
+        }
+        console.log(submission);
         if (this.state.rating !== undefined) {
             let submit =    
-                        <form className="submit-rating">
-                            <input type="submit" className="submit-rating-button" />    
-                        </form>
+                        <div className="submit-rating">
+                            <button 
+                                    type="submit" 
+                                    className="submit-rating-button"
+                                    onClick={this.submitRating(submission)}
+                            >Submit
+                            </button>   
+                        </div>
             return submit
         }
     }
