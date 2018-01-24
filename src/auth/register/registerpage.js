@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect, Provider} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import store from '../store'
+import {store} from '../../store'
 
 import Signup from './signup';
 
