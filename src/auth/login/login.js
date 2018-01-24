@@ -14,6 +14,7 @@ export class Login extends React.Component {
 
     render() {
         let error;
+        console.log(this.props.loggedIn)
         if (this.props.error) {
             error = (
                 <div className="form-error" aria-live="polite">

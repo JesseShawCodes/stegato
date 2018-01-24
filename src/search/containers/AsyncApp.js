@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {searchItunes} from '../actions';
 import Spinner from 'react-spinkit';
-import Albumrow from '../components/albumrow'
+import Albumrow from '../components/albumrow';
+import {fetchProtectedData} from '../../auth/actions/protected-data';
 
 export class AsyncApp extends React.Component {
+
     renderResults() {
         if (this.props.loading) {
             return <Spinner fadeIn="none" />;
@@ -27,6 +29,7 @@ export class AsyncApp extends React.Component {
                                 genre={this.props.music[i].primaryGenreName} 
                                 imagelink={this.props.music[i].artworkUrl100}
                                 buyOnItunes={this.props.music[i].collectionViewUrl}
+                                collectionId={this.props.music[i].collectionId}
                         />
         }
 
@@ -65,5 +68,6 @@ const mapStateToProps = state => ({
     loading: state.loading,
     error: state.error
 });
+
 
 export default connect(mapStateToProps)(AsyncApp);

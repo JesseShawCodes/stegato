@@ -12,6 +12,7 @@ export default class Rating extends React.Component {
         this.threeStars = this.threeStars.bind(this)
         this.twoStars = this.twoStars.bind(this)
         this.oneStars = this.oneStars.bind(this)
+        this.submitRating = this.submitRating.bind(this)
     }
 
     fiveStars() {
@@ -49,29 +50,47 @@ export default class Rating extends React.Component {
         console.log(this.state.rating)
     }
 
-    submitRating(input) {
+    submitRating() {
         console.log("Submitting Rating")
-        console.log(input)
-    }
-
-    reRender() {
-        let submit
         var submission = {
             artist: this.props.Artist,
             album: this.props.Album,
             genre: this.props.Genre,
             rating: this.state.rating,
             artwork: this.props.Artwork,
-            itunesLink: this.props.buyOnItunes
+            itunesLink: this.props.buyOnItunes,
+            user: "jshaw",
+            collectionid: this.props.collectionId
         }
-        console.log(submission);
+        console.log(submission.artist)
+        fetch(`http://localhost:8080/music-data/${submission.user}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'Artist': `${submission.artist}`,
+                'album': `${submission.album}`,
+                'Genre': `${submission.genre}`,
+                'Rating': `${submission.rating}`,
+                'artwork': `${submission.artwork}`,
+                'BuyOnItunes': `${submission.itunesLink}`,
+                'user': `${submission.user}`,
+                "collectionid": `${submission.collectionid}`
+            })
+        })
+    }
+
+    reRender() {
+        let submit
         if (this.state.rating !== undefined) {
             let submit =    
                         <div className="submit-rating">
                             <button 
-                                    type="submit" 
+                                    type="button" 
                                     className="submit-rating-button"
-                                    onClick={this.submitRating(submission)}
+                                    onClick={this.submitRating}
                             >Submit
                             </button>   
                         </div>
