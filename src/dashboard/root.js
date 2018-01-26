@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import store from '../store'
+import configureStore from '../store'
 import { Dashboardpage } from './dashboard';
-// import Registerpage from './registerpage'
-// import './signup.css';
 
+//Why is this function giving me an error????
+const store = configureStore()
 
 export default class Dashboardroot extends Component {
   render() {
