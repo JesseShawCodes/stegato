@@ -1,10 +1,10 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import thunk from 'redux-thunk';
-import {loadAuthToken} from './localstorage';
-import authReducer from './reducers/auth';
-import protectedDataReducer from './reducers/protected-data';
-import {setAuthToken, refreshAuthToken} from './actions/auth';
+import {loadAuthToken} from './auth/localstorage';
+import authReducer from './auth/reducers/auth';
+import protectedDataReducer from './auth/reducers/protected-data';
+import {setAuthToken, refreshAuthToken} from './auth/actions/auth';
 import { createLogger } from 'redux-logger'
 
 

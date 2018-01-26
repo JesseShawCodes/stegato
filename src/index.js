@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Footer from './footer/footer';
 import Registerroot from './auth/register/root';
 import { Provider } from 'react-redux'
-import store from './auth/store'
+import store from './store'
 import Loginroot from './auth/login/root';
 import Dashboardroot from './dashboard/root';
 
