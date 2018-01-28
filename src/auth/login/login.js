@@ -23,7 +23,7 @@ export class Login extends React.Component {
                 </div>
             );
         }
-        if (this.props.loggedIn) {
+        if (this.props.submitSucceeded === true) {
             return <Redirect to="/dashboard" />;
         }
         return (

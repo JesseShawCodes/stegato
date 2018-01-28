@@ -8,6 +8,7 @@ import {fetchProtectedData} from '../../auth/actions/protected-data';
 export class AsyncApp extends React.Component {
 
     renderResults() {
+        console.log(this.props.user)
         if (this.props.loading) {
             return <Spinner fadeIn="none" />;
         }
@@ -30,6 +31,7 @@ export class AsyncApp extends React.Component {
                                 imagelink={this.props.music[i].artworkUrl100}
                                 buyOnItunes={this.props.music[i].collectionViewUrl}
                                 collectionId={this.props.music[i].collectionId}
+                                user={this.props.user}
                         />
         }
 
