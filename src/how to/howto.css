@@ -1,9 +1,10 @@
 .how-to {
     background-color: gray;
+    margin-top: 40px;
 }
 
 h2 {
-    text-align: center;
+    text-align: left;
 }
 
 section {

@@ -43,6 +43,7 @@ export class Heading extends React.Component {
                 </h1>
                 <nav>
                     <a href="/">Home</a>
+                    <a href="/about">About</a>
                     <a href="/search">Search</a>
                     {dashboardButton}
                     {loginButton}

@@ -59,10 +59,10 @@ export default class Rating extends React.Component {
             rating: this.state.rating,
             artwork: this.props.Artwork,
             itunesLink: this.props.buyOnItunes,
-            user: "jshaw",
+            user: this.props.user,
             collectionid: this.props.collectionId
         }
-        console.log(submission.artist)
+        console.log(submission.user)
         fetch(`http://localhost:8080/music-data/${submission.user}`, {
             method: 'POST',
             headers: {
@@ -77,7 +77,8 @@ export default class Rating extends React.Component {
                 'artwork': `${submission.artwork}`,
                 'BuyOnItunes': `${submission.itunesLink}`,
                 'user': `${submission.user}`,
-                "collectionid": `${submission.collectionid}`
+                "collectionid": `${submission.collectionid}`,
+                "user": `${submission.user}`
             })
         })
     }

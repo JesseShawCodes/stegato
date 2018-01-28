@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import Loginroot from './auth/login/root';
 import Dashboardroot from './dashboard/root';
+import Howto from './how to/how-to'
 import {refreshAuthToken} from './auth/actions/auth'
 
 export class App extends React.Component {
@@ -55,6 +56,7 @@ export class App extends React.Component {
             <main>
                     <Heading />
                     <Route exact path="/" component={Landingpage} />
+                    <Route exact path="/about" component={Howto} />
                     <Route exact path="/login/" component={Loginroot} />
                     <Route exact path="/register/" component={Registerroot} />
                     <Route exact path="/search/" component={SearchRoot} user={user}/>

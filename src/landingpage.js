@@ -6,7 +6,6 @@ export default function Landingpage() {
     return (
             <div id="main">
                 <Splash />
-                <Howto />
             </div>
     );
 }
