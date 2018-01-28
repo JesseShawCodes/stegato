@@ -10,7 +10,7 @@ export function Registerpage(props) {
     // is successful) redirect to the user's dashboard
     if (props.loggedIn) {
         console.log(props.user.username)
-        return <Redirect to="/search" />;
+        return <Redirect to="/dashboard" />;
     }
     return (
         <Provider store={store}>

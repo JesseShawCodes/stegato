@@ -44,4 +44,5 @@ input[type=submit]:hover {
 
 form.login-form {
     margin-bottom: 30px;
+    text-align: center;
 }

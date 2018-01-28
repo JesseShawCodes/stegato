@@ -7,6 +7,7 @@ import {required, nonEmpty} from '../validators';
 import {Redirect} from 'react-router-dom';
 
 export class Login extends React.Component {
+
     onSubmit(values) {
         console.log("Logging in from Login Component")
         return this.props.dispatch(login(values.username, values.password));
@@ -23,7 +24,7 @@ export class Login extends React.Component {
             );
         }
         if (this.props.loggedIn) {
-            return <Redirect to="/search" />;
+            return <Redirect to="/dashboard" />;
         }
         return (
             <form

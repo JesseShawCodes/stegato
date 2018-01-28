@@ -3,3 +3,7 @@ div#main {
     /* margin: 0px auto; */
     text-align: center;
 }
+
+.dashboard-items {
+    text-align: center;
+}

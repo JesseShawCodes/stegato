@@ -34,7 +34,7 @@ export class Heading extends React.Component {
             );
         }
         return (
-        <header>
+        <header className="heading">
             <div className="container clearfix">
                 <h1 id="logo">
                     <a href="/" className="logo">

@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import configureStore from '../store'
 import { Dashboardpage } from './dashboard';
+import {connect} from 'react-redux';
+import requiresLogin from '../auth/requires-login';
 
-//Why is this function giving me an error????
-const store = configureStore()
-
-export default class Dashboardroot extends Component {
+export class Dashboardroot extends Component {
   render() {
+    console.log(this.props.username);
     return (
-      <Provider store={store}>
-        <Dashboardpage />
-      </Provider>
+        <Dashboardpage username={this.props.username}/>
     )
   }
 }
+
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+      username: state.auth.currentUser.username,
+      name: `${currentUser.firstName} ${currentUser.lastName}`,
+      protectedData: state.protectedData.data
+  };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Dashboardroot));
