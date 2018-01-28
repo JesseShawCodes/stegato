@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from '../auth/requires-login';
-import Albumrow from '../search/components/albumrow';
+import Dashboardalbums from './dashboardalbums';
 import './dashboard.css';
-import fetch from 'cross-fetch'
+import fetch from 'cross-fetch';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 /*
 let music = {
@@ -34,6 +36,28 @@ export class Dashboardpage extends React.Component {
         cards: []
       }
     }
+    
+    createNotification = (type) => {
+      return () => {
+        switch (type) {
+          case 'info':
+            NotificationManager.info('Info message');
+            break;
+          case 'success':
+            NotificationManager.success('Success message', 'Title here');
+            break;
+          case 'warning':
+            NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+            break;
+          case 'error':
+            NotificationManager.error('Error message', 'Click me!', 5000, () => {
+              alert('callback');
+            });
+            break;
+        }
+      };
+    };
+
     componentDidMount() {
       let cards
       fetch(`http://localhost:8080/music-data/${this.props.username}`)
@@ -44,7 +68,7 @@ export class Dashboardpage extends React.Component {
           let results = []
           for (var i = 0; i < data.length; i++) {
             console.log(data[i]);
-            results[i] = <Albumrow artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink}/>
+            results[i] = <Dashboardalbums artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink} rating={data[i].rating}/>
           }
           this.setState({cards: results})
           console.log(`"state": ${this.state.cards}`)
@@ -69,6 +93,7 @@ export class Dashboardpage extends React.Component {
             return (
               <div className="dashboard-items">
                 {this.state.cards}
+                <NotificationContainer />
               </div>
             );
     }
