@@ -5,13 +5,13 @@ import {loadAuthToken} from './auth/localstorage';
 import authReducer from './auth/reducers/auth';
 import protectedDataReducer from './auth/reducers/protected-data';
 import {setAuthToken, refreshAuthToken} from './auth/actions/auth';
-import { createLogger } from 'redux-logger'
+// import { createLogger } from 'redux-logger'
 //User Search Imports
 import thunkMiddleware from 'redux-thunk'
 import musicUserReducer from './dashboard/reducers'
 
 
-const loggerMiddleware = createLogger()
+// const loggerMiddleware = createLogger()
 
 const store = createStore(
     combineReducers({
@@ -21,7 +21,7 @@ const store = createStore(
     }),
     applyMiddleware(
         thunk,
-        loggerMiddleware
+        // loggerMiddleware
     )
 );
 
@@ -41,8 +41,8 @@ export function configureStore(preloadedState) {
     musicUserReducer,
     preloadedState,
     applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware
+      thunkMiddleware
+      // loggerMiddleware
     )
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import './index.css';
@@ -10,8 +9,6 @@ import SearchRoot from './search/containers/root';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Footer from './footer/footer';
 import Registerroot from './auth/register/root';
-import { Provider } from 'react-redux'
-import store from './store'
 import Loginroot from './auth/login/root';
 import Dashboardroot from './dashboard/root';
 import Howto from './how to/how-to'

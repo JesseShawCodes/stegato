@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {searchItunes} from '../actions';
 import Spinner from 'react-spinkit';
 import Albumrow from '../components/albumrow';
-import {fetchProtectedData} from '../../auth/actions/protected-data';
 
 export class AsyncApp extends React.Component {
 

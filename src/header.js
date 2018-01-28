@@ -12,7 +12,6 @@ export class Heading extends React.Component {
     }
 
     render() {
-        let user = this.props.name;
         let logOutButton;
         let dashboardButton;
         let loginButton;

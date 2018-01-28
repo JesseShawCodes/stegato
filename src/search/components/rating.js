@@ -77,14 +77,12 @@ export default class Rating extends React.Component {
                 'artwork': `${submission.artwork}`,
                 'BuyOnItunes': `${submission.itunesLink}`,
                 'user': `${submission.user}`,
-                "collectionid": `${submission.collectionid}`,
-                "user": `${submission.user}`
+                "collectionid": `${submission.collectionid}`
             })
         })
     }
 
     reRender() {
-        let submit
         if (this.state.rating !== undefined) {
             let submit =    
                         <div className="submit-rating">

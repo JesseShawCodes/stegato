@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Provider } from 'react-redux'
 import { Dashboardpage } from './dashboard';
 import {connect} from 'react-redux';
 import requiresLogin from '../auth/requires-login';
