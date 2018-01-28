@@ -5,7 +5,6 @@ import requiresLogin from '../auth/requires-login';
 
 export class Dashboardroot extends Component {
   render() {
-    console.log(this.props.username);
     return (
         <Dashboardpage username={this.props.username}/>
     )

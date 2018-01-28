@@ -194,3 +194,9 @@ section.rating-add {
     padding: 0px;
     float: left;
 }
+
+/*******Itunes Link Styling*******/
+
+.itunes-link {
+    width: 40px;
+}

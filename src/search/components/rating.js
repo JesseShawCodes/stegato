@@ -19,35 +19,30 @@ export default class Rating extends React.Component {
         this.setState({
             rating: 5
         })
-        console.log(this.state.rating)
     }
 
     fourStars() {
         this.setState({
             rating: 4
         })
-        console.log(this.state.rating)
     }
 
     threeStars() {
         this.setState({
             rating: 3
         })
-        console.log(this.state.rating)
     }
 
     twoStars() {
         this.setState({
             rating: 2
         })
-        console.log(this.state.rating)
     }
 
     oneStars() {
         this.setState({
             rating: 1
         })
-        console.log(this.state.rating)
     }
 
     submitRating() {
@@ -59,10 +54,9 @@ export default class Rating extends React.Component {
             rating: this.state.rating,
             artwork: this.props.Artwork,
             itunesLink: this.props.buyOnItunes,
-            user: this.props.user,
+            user: this.props.user.username,
             collectionid: this.props.collectionId
         }
-        console.log(submission.user)
         fetch(`http://localhost:8080/music-data/${submission.user}`, {
             method: 'POST',
             headers: {

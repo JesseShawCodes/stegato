@@ -11,7 +11,7 @@ const initialState = {
     error: null
 };
 
-export default function musicUserReducer(state=initialState, action) {
+export default function userDataSearch(state=initialState, action) {
     if (action.type === SEARCH_API_REQUEST) {
         return Object.assign({}, state, {
             user: "jshaw",

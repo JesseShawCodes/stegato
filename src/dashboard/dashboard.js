@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import requiresLogin from '../auth/requires-login';
 import Albumrow from '../search/components/albumrow';
 import './dashboard.css';
+import fetch from 'cross-fetch'
 
-
+/*
 let music = {
     "resultCount":16,
     "results": [
@@ -24,16 +25,35 @@ let music = {
    {"wrapperType":"collection", "collectionType":"Album", "artistId":468355684, "collectionId":893175779, "amgArtistId":792844, "artistName":"Burial", "collectionName":"Untrue", "collectionCensoredName":"Untrue", "artistViewUrl":"https://itunes.apple.com/us/artist/burial/468355684?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/untrue/893175779?uo=4", "artworkUrl60":"http://is3.mzstatic.com/image/thumb/Music4/v4/47/6f/a6/476fa621-2a18-5846-25b5-f139468c8196/source/60x60bb.jpg", "artworkUrl100":"http://is3.mzstatic.com/image/thumb/Music4/v4/47/6f/a6/476fa621-2a18-5846-25b5-f139468c8196/source/100x100bb.jpg", "collectionPrice":9.99, "collectionExplicitness":"notExplicit", "trackCount":13, "copyright":"℗ 2014 Hyperdub", "country":"USA", "currency":"USD", "releaseDate":"2014-07-01T07:00:00Z", "primaryGenreName":"Electronic"},
    {"wrapperType":"collection", "collectionType":"Album", "artistId":35888604, "collectionId":1286314406, "amgArtistId":362101, "artistName":"Four Tet", "collectionName":"There Is Love in You (Expanded Edition)", "collectionCensoredName":"There Is Love in You (Expanded Edition)", "artistViewUrl":"https://itunes.apple.com/us/artist/four-tet/35888604?uo=4", "collectionViewUrl":"https://itunes.apple.com/us/album/there-is-love-in-you-expanded-edition/1286314406?uo=4", "artworkUrl60":"http://is4.mzstatic.com/image/thumb/Music118/v4/35/fc/e1/35fce13b-9f01-cf91-1f2d-752c42197021/source/60x60bb.jpg", "artworkUrl100":"http://is4.mzstatic.com/image/thumb/Music118/v4/35/fc/e1/35fce13b-9f01-cf91-1f2d-752c42197021/source/100x100bb.jpg", "collectionExplicitness":"notExplicit", "trackCount":18, "copyright":"℗ 2010 Text Records", "country":"USA", "currency":"USD", "releaseDate":"2010-01-25T08:00:00Z", "primaryGenreName":"Electronic"} 
 ]}
-
+*/
 
 export class Dashboardpage extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+        cards: []
+      }
+    }
     componentDidMount() {
-      console.log("Component has mounted");
+      let cards
+      fetch(`http://localhost:8080/music-data/${this.props.username}`)
+        .then(results => {
+          return results.json()
+        })
+        .then(data => {
+          let results = []
+          for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+            results[i] = <Albumrow artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink}/>
+          }
+          this.setState({cards: results})
+          console.log(`"state": ${this.state.cards}`)
+        })
     }
 
     render() {
-            // console.log(music.results[1].artistName)
-            const cards = []
+            let cards
+            /*
             for (var i = 0; i < music.results.length; i++) {
               if (music.results[i].wrapperType !== "collection") {
                 continue;
@@ -45,9 +65,10 @@ export class Dashboardpage extends React.Component {
               let itunes = music.results[i].collectionViewUrl;
               cards.push(<Albumrow key={i} artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
             }
+            */
             return (
               <div className="dashboard-items">
-                {cards}
+                {this.state.cards}
               </div>
             );
     }
