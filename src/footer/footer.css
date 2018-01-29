@@ -1,5 +1,4 @@
 footer {
-    height: 100px;
     position: relative;
     background-color: #0F1626;
     bottom: 0;
@@ -9,4 +8,14 @@ footer {
 footer > h2 {
     margin-top: 0px;
     text-align: center;
+}
+
+.footer-content-1 {
+    align-content: center;
+    text-align: center;
+    padding: 30px 0px 30px 0px;
+}
+
+img.round-logo {
+    width: 100px;
 }

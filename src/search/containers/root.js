@@ -23,5 +23,4 @@ const mapStateToProps = state => ({
   user: state.auth.currentUser
 });
 
-// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default connect(mapStateToProps)(SearchRoot);

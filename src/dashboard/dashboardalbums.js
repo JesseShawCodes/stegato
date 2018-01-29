@@ -4,6 +4,11 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 export default class Dashboardalbums extends React.Component {
+    constructor(props) {
+        super(props);
+        this.deleteItem = this.deleteItem.bind(this);
+    }
+
     createNotification = (type) => {
         return () => {
           switch (type) {
@@ -23,6 +28,25 @@ export default class Dashboardalbums extends React.Component {
           }
         };
     };
+
+    deleteItem(identification, whoAreYou) {
+        console.log(identification);
+        console.log(whoAreYou);
+        fetch(`http://localhost:8080/music-data/`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                'mongoid': `${identification}`
+            }),
+            success: [
+                NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {})
+            ]
+        })
+    }
+
     render() {
         return (
             <div className="grid-item">
@@ -35,7 +59,7 @@ export default class Dashboardalbums extends React.Component {
                     <div className="card-block">
                     <div className="delete-button">
                     <button className='btn btn-danger delete-from-library'
-                    onClick={this.createNotification('error')}>X
+                    onClick={() => {this.deleteItem(this.props.mongoId, this.props.user)}}>X
                     </button>
                     </div>
                         <h5 className="text-bold">{this.props.artist}</h5>

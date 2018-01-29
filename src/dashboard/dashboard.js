@@ -67,29 +67,15 @@ export class Dashboardpage extends React.Component {
         .then(data => {
           let results = []
           for (var i = 0; i < data.length; i++) {
-            console.log(data[i]);
-            results[i] = <Dashboardalbums artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink} rating={data[i].rating}/>
+            console.log(data[i]._id);
+            results[i] = <Dashboardalbums key={i} artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink} rating={data[i].rating} collectionId={data[i].collectionId} user={data[i].user} mongoId={data[i]._id}/>
           }
           this.setState({cards: results})
-          console.log(`"state": ${this.state.cards}`)
         })
     }
 
     render() {
             let cards
-            /*
-            for (var i = 0; i < music.results.length; i++) {
-              if (music.results[i].wrapperType !== "collection") {
-                continue;
-              }
-              let artistKey = music.results[i].artistName;
-              let albumKey = music.results[i].collectionName;
-              let genreKey = music.results[i].primaryGenreName;
-              let imageKey = music.results[i].artworkUrl100;
-              let itunes = music.results[i].collectionViewUrl;
-              cards.push(<Albumrow key={i} artist={artistKey} album={albumKey} genre={genreKey} imagelink={imageKey} buyOnItunes={itunes}/>);
-            }
-            */
             return (
               <div className="dashboard-items">
                 {this.state.cards}
