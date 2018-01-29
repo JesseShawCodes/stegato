@@ -3,7 +3,7 @@ import './header.css';
 import {connect} from 'react-redux';
 import {clearAuth} from './auth/actions/auth';
 import {clearAuthToken} from './auth/localstorage';
-
+import logo from './images/stegatto_logo.png'
 
 export class Heading extends React.Component {
     logOut() {
@@ -37,9 +37,10 @@ export class Heading extends React.Component {
             <div className="container clearfix">
                 <h1 id="logo">
                     <a href="/" className="logo">
-                    Stegato
+                    <img src={logo} alt="Stegatto Logo" className="logo" />
                     </a>
                 </h1>
+                <div className="navigation">
                 <nav>
                     <a href="/">Home</a>
                     <a href="/about">About</a>
@@ -49,6 +50,7 @@ export class Heading extends React.Component {
                     {registerButton}
                     {logOutButton}
                 </nav>
+                </div>
             </div>
         </header>
         )

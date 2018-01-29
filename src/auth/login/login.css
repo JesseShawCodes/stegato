@@ -21,8 +21,8 @@ input[type=text],input[type=password], select {
 button {
     width: 100px;
     border: none;
-    background: green;
-    color: white;
+    background: #0F1626;
+    color: #f5f5f5;
     font-size: 20px;
 }
 
@@ -43,6 +43,6 @@ input[type=submit]:hover {
 }
 
 form.login-form {
-    margin-bottom: 30px;
+    margin: 30px 0px 30px 0px;
     text-align: center;
 }

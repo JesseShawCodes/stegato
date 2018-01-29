@@ -1,3 +1,7 @@
+body {
+    background-color: #f5f5f5
+}
+
 .grid-item {
     width: 200px;
     display: inline-table;
@@ -22,3 +26,10 @@ strong {
 h1 {
     text-align: left;
 }
+
+@media screen and (min-width: 800px) {
+    main {
+        width: 1000px;
+        margin: 0px auto;
+    }
+  }
