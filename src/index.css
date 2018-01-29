@@ -1,3 +1,7 @@
+html {
+    background-color: #ff533d;
+}
+
 body {
     background-color: #f5f5f5
 }
@@ -29,7 +33,6 @@ h1 {
 
 @media screen and (min-width: 800px) {
     main {
-        width: 1000px;
         margin: 0px auto;
     }
-  }
+}

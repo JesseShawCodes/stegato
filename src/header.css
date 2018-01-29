@@ -24,6 +24,7 @@ img.logo {
 
 nav {
   float: right;
+  margin-bottom: 10px;
 }
 
 nav ul {
@@ -35,7 +36,7 @@ nav ul {
 nav li { 
   display: inline-block;
   margin-left: 35px;
-  padding-top: 25px;
+  padding-top: 10px;
   position: relative;
 }
 
@@ -53,16 +54,20 @@ nav a:hover {
 nav a::before {
   content: '';
   display: block;
-  height: 5px;
+  height: 10px;
   width: 0%;
-  background-color: #f5f5f5;
+  background-color: #ff533d;
   position: absolute;
   top: 0;
-
   transition: all ease-in-out 250ms;
 }
 
 nav a:hover::before {
   width: 100%;
+}
 
+@media (max-width: 450px) {
+  img.logo {
+      width: 80%;
+  }
 }

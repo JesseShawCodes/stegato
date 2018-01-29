@@ -6,7 +6,43 @@ export default function Footer() {
     return (
         <footer>
             <div className="footer-content-1">
-            <img src={logo} alt="Stegatto Round Logo" className="round-logo"></img>
+            <div className="row">
+                        <div className="col-lg-8 mx-auto text-center">
+                            <h2 className="section-heading">Questions about the App?</h2>
+                            <hr className="primary"></hr>
+                            <p className="contactp">If you have any questions regarding this project, feel free to contact Jesse Shaw at any of the points of contact below:</p>
+                        </div>
+            </div>
+            <div class="contactpoints">
+            <div class="point-of-contact">
+                <i class="fa fa-phone fa-3x sr-contact"></i>
+                <p><a href="tel:410-703-6125">410-703-6125</a></p>
+            </div>
+            <div class="point-of-contact">
+                <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p>
+                        <a href="mailto:your-email@your-domain.com">jdshaw1987@gmail.com</a>
+                    </p>
+            </div>
+            <div class="point-of-contact">
+                <i class="fa fa-github fa-3x sr-contact"></i>
+                    <p>
+                        <a href="https://github.com/thejesseshaw">GitHub</a>
+                    </p>
+            </div>  
+            </div>
+            <section className="footer-logo">
+                <a href="/">
+                    <img src={logo} alt="Stegatto Round Logo" className="round-logo"></img>
+                </a>
+            </section>
+            <section className="footer-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/search">Search</a></li>
+            </ul>
+            </section>
             </div>
         </footer>
     );

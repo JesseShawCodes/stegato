@@ -2,8 +2,8 @@ import React from 'react';
 import {connect, Provider} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import store from '../../store'
-
 import Signup from './signup';
+import './registerpage.css'
 
 export function Registerpage(props) {
     // If we are logged in (which happens automatically when registration
@@ -15,7 +15,7 @@ export function Registerpage(props) {
     return (
         <Provider store={store}>
         <div className="home">
-            <h2>Register for Stegato</h2>
+            <h2 className="register-heading">Register for Stegato</h2>
             <Signup />
             <div className="already-user">
             Already registered? click <Link to="/login">here</Link> to login!

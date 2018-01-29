@@ -29,9 +29,12 @@ export default class Dashboardalbums extends React.Component {
         };
     };
 
+    reRenderParent() {
+        console.log("Re-Rendering Parent")
+        this.props.callback
+    }
+
     deleteItem(identification, whoAreYou) {
-        console.log(identification);
-        console.log(whoAreYou);
         fetch(`http://localhost:8080/music-data/`, {
             method: 'DELETE',
             headers: {
@@ -45,6 +48,7 @@ export default class Dashboardalbums extends React.Component {
                 NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {})
             ]
         })
+        this.reRenderParent()
     }
 
     render() {

@@ -3,11 +3,18 @@ footer {
     background-color: #0F1626;
     bottom: 0;
     width: 100%;
+    padding: 10px 0px; 
 }
   
 footer > h2 {
     margin-top: 0px;
     text-align: center;
+}
+
+hr {
+    max-width: 50px;
+    border-width: 3px;
+    border-color: #ff533d;
 }
 
 .footer-content-1 {
@@ -18,4 +25,87 @@ footer > h2 {
 
 img.round-logo {
     width: 100px;
+}
+
+.footer-menu {
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+.footer-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+  
+.footer-menu li { 
+    padding-top: 10px;
+    position: relative;
+}
+
+.footer-menu a {
+    color: #f5f5f5;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.footer-menu a:hover {
+    color: #ff533d; 
+}
+
+.footer-menu a::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 0%;
+    background-color: #ff533d;
+    position: absolute;
+    top: 0;
+    transition: all ease-in-out 250ms;
+}
+
+.footer-menu a:hover::before {
+    width: 100%;
+}
+
+h2.section-heading {
+    text-align: center;
+}
+
+.col-lg-8.mx-auto.text-center {
+    color: white;
+}
+
+.contactpoints {
+    color: #f5f5f5;
+}
+
+section.footer-logo {
+    text-align: center;
+}
+
+img.round-logo {
+    width: 40px;
+}
+
+/*Points of Contact*/
+
+.point-of-contact a:hover, .point-of-contact:hover {
+    color: #ff533d; 
+}
+
+.point-of-contact a::before {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 0%;
+    background-color: #ff533d;
+    position: absolute;
+    top: 0;
+    transition: all ease-in-out 250ms;
+}
+
+.point-of-contact a:hover::before {
+    width: 100%;
 }

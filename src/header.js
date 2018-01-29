@@ -51,30 +51,6 @@ export class Heading extends React.Component {
                 </ul>
             )
         }
-        /*
-        return (
-        <header className="heading">
-            <div className="container clearfix">
-                <div id="logo">
-                    <a href="/" className="logo">
-                    <img src={logo} alt="Stegatto Logo" className="logo" />
-                    </a>
-                </div>
-                <div className="navigation">
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/about">About</a>
-                    <a href="/search">Search</a>
-                    {dashboardButton}
-                    {loginButton}
-                    {registerButton}
-                    {logOutButton}
-                </nav>
-                </div>
-            </div>
-        </header>
-        )
-        */
         return (
             <header>
                 <div className="container">

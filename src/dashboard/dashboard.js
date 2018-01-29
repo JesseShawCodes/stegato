@@ -35,6 +35,7 @@ export class Dashboardpage extends React.Component {
       this.state = {
         cards: []
       }
+      this.componentWillUpdate = this.componentWillUpdate.bind(this)
     }
     
     createNotification = (type) => {
@@ -58,6 +59,10 @@ export class Dashboardpage extends React.Component {
       };
     };
 
+    componentWillUpdate(nextProps, nextState) {
+      console.log("Component is updating", nextProps, nextState);
+    }
+
     componentDidMount() {
       let cards
       fetch(`http://localhost:8080/music-data/${this.props.username}`)
@@ -68,7 +73,18 @@ export class Dashboardpage extends React.Component {
           let results = []
           for (var i = 0; i < data.length; i++) {
             console.log(data[i]._id);
-            results[i] = <Dashboardalbums key={i} artist={data[i].artist} album={data[i].album} genre={data[i].genre} imagelink={data[i].artwork} buyOnItunes={data[i].itunesLink} rating={data[i].rating} collectionId={data[i].collectionId} user={data[i].user} mongoId={data[i]._id}/>
+            results[i] = <Dashboardalbums key={i} 
+                                          artist={data[i].artist}     
+                                          album={data[i].album} 
+                                          genre={data[i].genre} 
+                                          imagelink={data[i].artwork} 
+                                          buyOnItunes={data[i].itunesLink} 
+                                          rating={data[i].rating} 
+                                          collectionId={data[i].collectionId} 
+                                          user={data[i].user} 
+                                          mongoId={data[i]._id} 
+                                          callback={this.render()}
+                          />
           }
           this.setState({cards: results})
         })
