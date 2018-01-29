@@ -16,12 +16,22 @@ export class Heading extends React.Component {
         let dashboardButton;
         let loginButton;
         let registerButton;
+        let listItems
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/logout" onClick={() => this.logOut()}>Logout</a>
             );
             dashboardButton = (
                 <a href="/dashboard">Dashboard</a>
+            );
+            listItems = (
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/search">Search</a></li>
+                <li>{dashboardButton}</li>
+                <li>{logOutButton}</li>
+            </ul>
             );
         }
         else {
@@ -31,15 +41,25 @@ export class Heading extends React.Component {
             registerButton = (
                 <a href="/register">Register</a>
             );
+            listItems = (
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/search">Search</a></li>
+                    <li>{loginButton}</li>
+                    <li>{registerButton}</li>
+                </ul>
+            )
         }
+        /*
         return (
         <header className="heading">
             <div className="container clearfix">
-                <h1 id="logo">
+                <div id="logo">
                     <a href="/" className="logo">
                     <img src={logo} alt="Stegatto Logo" className="logo" />
                     </a>
-                </h1>
+                </div>
                 <div className="navigation">
                 <nav>
                     <a href="/">Home</a>
@@ -53,6 +73,17 @@ export class Heading extends React.Component {
                 </div>
             </div>
         </header>
+        )
+        */
+        return (
+            <header>
+                <div className="container">
+                <img src={logo} alt="Stegatto Logo" className="logo" />
+                <nav>
+                    {listItems}
+                </nav>
+                </div>
+            </header>
         )
     };
 }
