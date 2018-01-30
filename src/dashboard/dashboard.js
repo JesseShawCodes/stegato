@@ -71,13 +71,26 @@ export class Dashboardpage extends React.Component {
     }
 
     render() {
-            // let cards
-            return (
-              <div className="dashboard-items">
-                {this.state.cards}
-                <NotificationContainer />
-              </div>
-            );
+      // let cards
+      if (this.state.cards.length === 0) {
+        console.log("New User with No items in Dashboard!!")
+        var message = 
+          <div className="initial-greeting">
+            <h1>Welcome to Stegatto!</h1>
+            <section className="welcome-message">
+              <p>To add rate and add music to your dashboard, search for music <a href="/search" className="first-search">here</a>.</p>
+            </section>
+          </div>
+      }
+      else {
+        var message = this.state.cards
+      }
+      return (
+        <div className="dashboard-items">
+          {message}
+          <NotificationContainer />
+        </div>
+      );
     }
 }
 

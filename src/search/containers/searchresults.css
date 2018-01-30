@@ -1,0 +1,36 @@
+.grid-item {
+    width: 200px;
+    display: inline-table;
+}
+
+@media (max-width: 450px) {
+    /*Search Form*/
+    form.musicsearch {
+        margin: 0px auto;
+    }
+    label.artist-search-label {
+        font-size: 28px;
+    }
+    input[type="search"] {
+        height: 30px;
+        font-size: 30px;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+    .search-button {
+        margin-bottom: 10px;
+    }
+    /*Search Results*/
+    .grid-item {
+        width: 90%;
+    }
+    .front {
+        width: 90%;
+    }
+    .flip-container {
+        margin: 0px auto;
+    }
+    .front {
+        width: 300px;
+    }
+}

@@ -42,3 +42,13 @@ form.login-form {
     margin: 30px 0px 30px 0px;
     text-align: center;
 }
+
+@media screen and (max-width: 750px) {
+    input[type=text],input[type=password], select {
+        width: 90%;
+        font-size: 18px;
+    }
+    .form-error {
+        font-size: 16px;
+    }
+}

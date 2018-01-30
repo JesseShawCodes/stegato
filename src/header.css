@@ -67,8 +67,27 @@ nav a:hover::before {
   width: 100%;
 }
 
+@media screen and (max-width: 750px) {
+  nav li {
+    display: inherit;
+  }
+  nav {
+      width: 100%;
+  }
+}
+
 @media (max-width: 450px) {
   img.logo {
       width: 80%;
+  }
+  nav li {
+    display: inherit;
+  }
+  nav {
+      width: 100%;
+  }
+  nav a {
+    font-size: 20px;
+    margin: 0px;
   }
 }

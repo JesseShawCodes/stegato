@@ -122,4 +122,16 @@ img.round-logo {
         display: block;
         margin: 0px 20px;
     }
+    p.contactp {
+        font-size: 18px;
+    }
+    .contactpoints {
+        font-size: 20px;
+    }
+    img.round-logo {
+        width: 100px;
+    }
+    .footer-menu a {
+        font-size: 20px;
+    }
 }

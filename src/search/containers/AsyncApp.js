@@ -53,9 +53,9 @@ export class AsyncApp extends React.Component {
         return (
             <div className="search-section">
             <form className="musicsearch" onSubmit={(e) => this.search(e)}>
-                <label htmlFor="artist">Artist</label>
+                <label htmlFor="artist" className="artist-search-label">Artist</label>
                 <input type="search" ref={input => this.input = input} />
-                <button>Search</button>
+                <button className="search-button">Search</button>
             </form>
             {this.renderResults()}
             </div>

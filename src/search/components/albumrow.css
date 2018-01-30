@@ -200,3 +200,18 @@ section.rating-add {
 .itunes-link {
     width: 40px;
 }
+
+/*****Mobile Styling******/
+
+@media screen and (max-width: 750px) {
+    h5 {
+        font-size: 20px;
+    }
+    .text-bold {
+        font-size: 18px;
+    }
+    section.rating {
+        font-size: 20px;
+    }
+}
+
