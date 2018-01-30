@@ -83,6 +83,7 @@ h2.section-heading {
 
 section.footer-logo {
     text-align: center;
+    margin: 15px 0px;
 }
 
 img.round-logo {
@@ -90,6 +91,16 @@ img.round-logo {
 }
 
 /*Points of Contact*/
+
+.point-of-contact {
+    display: -webkit-inline-box;
+    margin: 0px 20px;
+}
+
+.contactpoints {
+    align-content: center;
+    text-align: center;
+}
 
 .point-of-contact a:hover, .point-of-contact:hover {
     color: #ff533d; 
@@ -106,6 +117,9 @@ img.round-logo {
     transition: all ease-in-out 250ms;
 }
 
-.point-of-contact a:hover::before {
-    width: 100%;
+@media (max-width: 450px) {
+    .point-of-contact {
+        display: block;
+        margin: 0px 20px;
+    }
 }

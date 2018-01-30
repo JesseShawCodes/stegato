@@ -8,26 +8,28 @@ export default function Footer() {
             <div className="footer-content-1">
             <div className="row">
                         <div className="col-lg-8 mx-auto text-center">
-                            <h2 className="section-heading">Questions about the App?</h2>
+                            <h2 className="section-heading">Questions about Stegatto?</h2>
                             <hr className="primary"></hr>
                             <p className="contactp">If you have any questions regarding this project, feel free to contact Jesse Shaw at any of the points of contact below:</p>
                         </div>
             </div>
-            <div class="contactpoints">
-            <div class="point-of-contact">
-                <i class="fa fa-phone fa-3x sr-contact"></i>
-                <p><a href="tel:410-703-6125">410-703-6125</a></p>
+            <div className="contactpoints">
+            <div className="point-of-contact">
+                <i className="fa fa-phone fa-3x sr-contact"></i>
+                    <p className="point-of-contact-link">
+                        <a href="tel:410-703-6125" >410-703-6125</a>
+                    </p>
             </div>
             <div class="point-of-contact">
-                <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p>
+                <i className="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p className="point-of-contact-link">
                         <a href="mailto:your-email@your-domain.com">jdshaw1987@gmail.com</a>
                     </p>
             </div>
             <div class="point-of-contact">
                 <i class="fa fa-github fa-3x sr-contact"></i>
-                    <p>
-                        <a href="https://github.com/thejesseshaw">GitHub</a>
+                    <p className="point-of-contact-link">
+                        <a href="https://github.com/thejesseshaw" >GitHub</a>
                     </p>
             </div>  
             </div>
