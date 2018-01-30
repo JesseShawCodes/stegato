@@ -70,9 +70,7 @@ export default class Rating extends React.Component {
     };
 
     submitRating() {
-        console.log("Submitting Rating")
-        if (this.props.username === undefined) {
-            console.log("Not logged In");
+        if (this.props.user.username === undefined) {
             NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegatto user if you want to rate music.', 5000, () => {
                 alert('callback');
             });

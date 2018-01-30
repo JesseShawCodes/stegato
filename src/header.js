@@ -4,11 +4,15 @@ import {connect} from 'react-redux';
 import {clearAuth} from './auth/actions/auth';
 import {clearAuthToken} from './auth/localstorage';
 import logo from './images/stegatto_logo.png'
+import {Redirect} from 'react-router-dom';
 
 export class Heading extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
-        clearAuthToken();
+        clearAuthToken();   
+        if (this.props.loggedIn === null) {
+            return <Redirect to="/logout" />;
+        }
     }
 
     render() {

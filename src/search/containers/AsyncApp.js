@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import {searchItunes} from '../actions';
 import Spinner from 'react-spinkit';
 import Albumrow from '../components/albumrow';
+import './searchresults.css'
 
 export class AsyncApp extends React.Component {
-
     renderResults() {
         console.log(this.props.user)
         if (this.props.loading) {
@@ -35,7 +35,7 @@ export class AsyncApp extends React.Component {
         }
 
         return (
-            <div>
+            <div className="search-results-rendered">
             {music}
             </div>
         )
