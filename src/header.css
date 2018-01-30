@@ -7,7 +7,8 @@
 
 header {
   background-color: #0F1626;
-  color: #f5f5f5
+  color: #f5f5f5;
+  padding-top: 10px;
 }
 
 header::after {

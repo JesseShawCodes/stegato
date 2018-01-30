@@ -7,7 +7,6 @@ import './searchresults.css'
 
 export class AsyncApp extends React.Component {
     renderResults() {
-        console.log(this.props.user)
         if (this.props.loading) {
             return <Spinner fadeIn="none" />;
         }

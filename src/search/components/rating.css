@@ -1,3 +1,8 @@
 button.submit-rating-button {
     height: 30px;
 }
+
+.submit-rating {
+    margin: 1px 0px;
+    font-size: 12px;
+}

@@ -8,7 +8,6 @@ const store = configureStore()
 
 export class SearchRoot extends Component {
   render() {
-    console.log(this.props)
     return (
       <Provider store={store}>
         <AsyncApp user={this.props.user}/>

@@ -33,6 +33,8 @@ export class Dashboardpage extends React.Component {
               alert('callback');
             });
             break;
+          default: 
+            //do Nothing
         }
       };
     };
@@ -42,7 +44,7 @@ export class Dashboardpage extends React.Component {
     }
 
     componentDidMount() {
-      let cards
+      // let cards
       fetch(`http://localhost:8080/music-data/${this.props.username}`)
         .then(results => {
           return results.json()
@@ -69,7 +71,7 @@ export class Dashboardpage extends React.Component {
     }
 
     render() {
-            let cards
+            // let cards
             return (
               <div className="dashboard-items">
                 {this.state.cards}

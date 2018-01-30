@@ -4,10 +4,6 @@ section.signup-form-section {
     padding-bottom: 30px;
 }
 
-label {
-    display: inherit;
-}
-
 input[type=text], select {
     width: 400px;
     padding: 12px 20px;

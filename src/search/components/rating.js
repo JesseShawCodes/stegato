@@ -65,12 +65,14 @@ export default class Rating extends React.Component {
                 alert('callback');
               });
               break;
+            default:
+            // Do nothing
           }
         };
     };
 
     submitRating() {
-        if (this.props.user.username === undefined) {
+        if (this.props.user === undefined || this.props.user === null) {
             NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegatto user if you want to rate music.', 5000, () => {
                 alert('callback');
             });
@@ -102,7 +104,11 @@ export default class Rating extends React.Component {
                     'user': `${submission.user}`,
                     "collectionid": `${submission.collectionid}`
                 })
-            })
+            }).then(
+                NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
+                    alert('callback');
+                })
+            )
         }
     }
 
@@ -124,13 +130,13 @@ export default class Rating extends React.Component {
     render() {
         return (
             <section className="rating-add">
-            <div className="rating">
+            <section className="rating">
                 <span className="five-star" onClick={this.fiveStars} value={5}>☆</span>
                 <span className="four-star" onClick={this.fourStars} value={4}>☆</span>
                 <span className="three-star" onClick={this.threeStars} value={3}>☆</span>
                 <span className="two-star" onClick={this.twoStars} value={2}>☆</span>
                 <span className="one-star" onClick={this.oneStars} value={1}>☆</span>
-            </div>
+            </section>
             {this.reRender()}
             <NotificationContainer />
             </section>

@@ -112,6 +112,10 @@ h5 {
     text-align: left;
 }
 
+p.text-bold{
+    margin: 4px 0px;
+}
+
 .meta {
     font-size: 1em;
     color: rgba(0, 0, 0, .4);
@@ -195,10 +199,22 @@ section.rating-add {
     float: left;
 }
 
-/*******Itunes Link Styling*******/
+/*******Itunes Link and Rating Styling*******/
 
 .itunes-link {
     width: 40px;
+}
+
+section.buttons {
+    float: left;
+}
+
+section.buttons {
+    width: 100%;
+}
+
+section.rating-add {
+    width: 100%;
 }
 
 /*****Delete Button from Dashboard*****/

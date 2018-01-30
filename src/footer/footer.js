@@ -23,13 +23,13 @@ export default function Footer() {
             <div className="point-of-contact">
                 <i className="fa fa-envelope-o fa-3x sr-contact"></i>
                     <p className="point-of-contact-link">
-                        <a href="mailto:your-email@your-domain.com">jdshaw1987@gmail.com</a>
+                        <a href="mailto:jdshaw1987@gmail.com">jdshaw1987@gmail.com</a>
                     </p>
             </div>
             <div className="point-of-contact">
                 <i className="fa fa-github fa-3x sr-contact"></i>
                     <p className="point-of-contact-link">
-                        <a href="https://github.com/thejesseshaw" >GitHub</a>
+                        <a href="https://github.com/thejesseshaw" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </p>
             </div>  
             </div>

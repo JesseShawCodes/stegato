@@ -47,7 +47,6 @@ export class App extends React.Component {
 
     render() {
         var user = this.props.user
-        console.log(user)
         return (
             <Router>
             <main>
