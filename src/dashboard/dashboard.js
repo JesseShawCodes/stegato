@@ -76,7 +76,7 @@ export class Dashboardpage extends React.Component {
         console.log("New User with No items in Dashboard!!")
         var message = 
           <div className="initial-greeting">
-            <h1>Welcome to Stegatto!</h1>
+            <h1>Welcome to Stegato!</h1>
             <section className="welcome-message">
               <p>To add rate and add music to your dashboard, search for music <a href="/search" className="first-search">here</a>.</p>
             </section>

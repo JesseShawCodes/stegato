@@ -3,7 +3,7 @@ import './header.css';
 import {connect} from 'react-redux';
 import {clearAuth} from './auth/actions/auth';
 import {clearAuthToken} from './auth/localstorage';
-import logo from './images/stegatto_logo.png'
+import logo from './images/stegato_logo.png'
 import {Redirect} from 'react-router-dom';
 
 export class Heading extends React.Component {
@@ -58,7 +58,7 @@ export class Heading extends React.Component {
         return (
             <header>
                 <div className="container">
-                <img src={logo} alt="Stegatto Logo" className="logo" />
+                <img src={logo} alt="Stegato Logo" className="logo" />
                 <nav>
                     {listItems}
                 </nav>

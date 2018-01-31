@@ -73,7 +73,7 @@ export default class Rating extends React.Component {
 
     submitRating() {
         if (this.props.user === undefined || this.props.user === null) {
-            NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegatto user if you want to rate music.', 5000, () => {
+            NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
                 alert('callback');
             });
         }

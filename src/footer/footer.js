@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="footer-content-1">
             <div className="row">
                         <div className="col-lg-8 mx-auto text-center">
-                            <h2 className="section-heading">Questions about Stegatto?</h2>
+                            <h2 className="section-heading">Questions about Stegato?</h2>
                             <hr className="primary"></hr>
                             <p className="contactp">If you have any questions regarding this project, feel free to contact Jesse Shaw at any of the points of contact below:</p>
                         </div>
