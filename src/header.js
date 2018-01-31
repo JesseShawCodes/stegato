@@ -58,9 +58,9 @@ export class Heading extends React.Component {
         return (
             <header>
                 <div className="container">
-                <a href="/">
-                <img src={logo} alt="Stegato Logo" className="logo" />
-                </a>
+                    <a href="/">
+                        <img src={logo} alt="Stegato Logo" className="logo" />
+                    </a>
                 <nav>
                     {listItems}
                 </nav>
