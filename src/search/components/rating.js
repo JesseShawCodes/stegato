@@ -34,6 +34,7 @@ export default class Rating extends React.Component {
         this.setState({
             rating: 3
         })
+        let ratings = "HIIIII"
     }
 
     twoStars() {
@@ -109,6 +110,9 @@ export default class Rating extends React.Component {
                     alert('callback');
                 })
             )
+            .then(
+                this.setState({rating: undefined})
+            )
         }
     }
 
@@ -128,17 +132,19 @@ export default class Rating extends React.Component {
     }
 
     render() {
+        let ratings = 
+                <section className="rating">
+                    <span className="five-star" onClick={this.fiveStars} value={5}>☆</span>
+                    <span className="four-star" onClick={this.fourStars} value={4}>☆</span>
+                    <span className="three-star" onClick={this.threeStars} value={3}>☆</span>
+                    <span className="two-star" onClick={this.twoStars} value={2}>☆</span>
+                    <span className="one-star" onClick={this.oneStars} value={1}>☆</span>
+                </section>
         return (
             <section className="rating-add">
-            <section className="rating">
-                <span className="five-star" onClick={this.fiveStars} value={5}>☆</span>
-                <span className="four-star" onClick={this.fourStars} value={4}>☆</span>
-                <span className="three-star" onClick={this.threeStars} value={3}>☆</span>
-                <span className="two-star" onClick={this.twoStars} value={2}>☆</span>
-                <span className="one-star" onClick={this.oneStars} value={1}>☆</span>
-            </section>
-            {this.reRender()}
-            <NotificationContainer />
+                {ratings}
+                {this.reRender()}
+                <NotificationContainer />
             </section>
         );
     }
