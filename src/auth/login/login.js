@@ -9,13 +9,11 @@ import {Redirect} from 'react-router-dom';
 export class Login extends React.Component {
 
     onSubmit(values) {
-        console.log("Logging in from Login Component")
         return this.props.dispatch(login(values.username, values.password));
     }
 
     render() {
         let error;
-        console.log(this.props.loggedIn)
         if (this.props.error) {
             error = (
                 <div className="form-error" aria-live="polite">

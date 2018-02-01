@@ -46,11 +46,12 @@ export class App extends React.Component {
     }
 
     render() {
+        console.log(this.props)
         var user = this.props.user
         return (
             <Router>
             <main>
-                    <Heading />
+                    <Heading hasAuthToken={this.props.hasAuthToken} />
                     <Route exact path="/" component={Landingpage} />
                     <Route exact path="/about" component={Howto} />
                     <Route exact path="/login/" component={Loginroot} />

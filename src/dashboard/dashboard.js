@@ -13,7 +13,6 @@ export class Dashboardpage extends React.Component {
       this.state = {
         cards: []
       }
-      this.componentWillUpdate = this.componentWillUpdate.bind(this)
     }
     
     createNotification = (type) => {
@@ -38,10 +37,6 @@ export class Dashboardpage extends React.Component {
         }
       };
     };
-
-    componentWillUpdate(nextProps, nextState) {
-      console.log("Component is updating", nextProps, nextState);
-    }
 
     componentDidMount() {
       // let cards
@@ -73,7 +68,6 @@ export class Dashboardpage extends React.Component {
     render() {
       // let cards
       if (this.state.cards.length === 0) {
-        console.log("New User with No items in Dashboard!!")
         var message = 
           <div className="initial-greeting">
             <h1>Welcome to Stegato!</h1>
