@@ -33,7 +33,7 @@ export default class Rating extends React.Component {
 
     fourStars() {
         this.setState({
-            rating: 4
+            rating: 4,
         })
     }
 
@@ -125,7 +125,11 @@ export default class Rating extends React.Component {
 
     reRender() {
         if (this.state.rating !== undefined) {
-            let submit =    
+            let submit =  
+                        <section className="rating-submited">
+                        <div className="rating-pending">
+                            {this.state.rating}
+                        </div>  
                         <div className="submit-rating">
                             <button 
                                     type="button" 
@@ -134,6 +138,7 @@ export default class Rating extends React.Component {
                             >Submit
                             </button>   
                         </div>
+                        </section>
             return submit
         }
     }
