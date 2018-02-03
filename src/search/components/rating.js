@@ -8,7 +8,14 @@ export default class Rating extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            rating: undefined
+            rating: undefined,
+            ratingsStyle:   <section className="rating">
+                                <span className="five-star" onClick={this.fiveStars} value={5}>☆</span>
+                                <span className="four-star" onClick={this.fourStars} value={4}>☆</span>
+                                <span className="three-star" onClick={this.threeStars} value={3}>☆</span>
+                                <span className="two-star" onClick={this.twoStars} value={2}>☆</span>
+                                <span className="one-star" onClick={this.oneStars} value={1}>☆</span>
+                            </section>
         }
         this.fiveStars = this.fiveStars.bind(this)
         this.fourStars = this.fourStars.bind(this)
@@ -34,7 +41,6 @@ export default class Rating extends React.Component {
         this.setState({
             rating: 3
         })
-        let ratings = "HIIIII"
     }
 
     twoStars() {
@@ -48,7 +54,7 @@ export default class Rating extends React.Component {
             rating: 1
         })
     }
-
+    /*
     createNotification = (type) => {
         return () => {
           switch (type) {
@@ -71,7 +77,8 @@ export default class Rating extends React.Component {
           }
         };
     };
-
+    */
+    
     submitRating() {
         if (this.props.user === undefined || this.props.user === null) {
             NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {

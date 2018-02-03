@@ -47,7 +47,6 @@ export class Dashboardpage extends React.Component {
         .then(data => {
           let results = []
           for (var i = 0; i < data.length; i++) {
-            console.log(data[i]._id);
             results[i] = <Dashboardalbums key={i} 
                                           artist={data[i].artist}     
                                           album={data[i].album} 
@@ -67,8 +66,9 @@ export class Dashboardpage extends React.Component {
 
     render() {
       // let cards
+      let message
       if (this.state.cards.length === 0) {
-        var message = 
+        message = 
           <div className="initial-greeting">
             <h1>Welcome to Stegato!</h1>
             <section className="welcome-message">
@@ -77,7 +77,7 @@ export class Dashboardpage extends React.Component {
           </div>
       }
       else {
-        var message = this.state.cards
+        message = this.state.cards
       }
       return (
         <div className="dashboard-items">
