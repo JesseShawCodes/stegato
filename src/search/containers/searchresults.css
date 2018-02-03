@@ -3,6 +3,38 @@
     display: inline-table;
 }
 
+form.musicsearch {
+    margin: 10px;
+}
+
+label.artist-search-label {
+    font-size: 20px;
+    margin-bottom: 5px; 
+}
+
+input[type="search"] {
+    padding: 10px;
+    font-size: 20px;
+    display: inherit;
+    margin: 0px auto;
+}
+
+button {
+    margin-top: 10px;
+}
+
+@media (max-width: 750px) {
+    label.artist-search-label {
+        display: inherit;
+    }
+    
+    form.musicsearch {
+        margin: 20px;
+        text-align: center;
+        align-items: center;
+    }
+}
+
 @media (max-width: 450px) {
     /*Search Form*/
     form.musicsearch {

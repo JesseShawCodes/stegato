@@ -22,7 +22,9 @@ export class Searchform extends React.Component {
             <div className="search-section">
             <form className="musicsearch" onSubmit={(e) => this.search(e)}>
                 <label htmlFor="artist" className="artist-label">Artist</label>
-                <input type="search" ref={input => this.input = input} />
+                    <section className="search-form-input">
+                        <input type="search" ref={input => this.input = input} />
+                    </section>
                 <button className="search-button">Search</button>
             </form>
             </div>
