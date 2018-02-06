@@ -2,6 +2,7 @@ import React from 'react';
 import './dashboardalbums.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import {refreshDashboard} from './actions'
 
 export default class Dashboardalbums extends React.Component {
     constructor(props) {
@@ -32,6 +33,7 @@ export default class Dashboardalbums extends React.Component {
     };
 
     deleteItem(identification, whoAreYou) {
+        const { dispatch } = this.props
         fetch(`http://localhost:8080/music-data/`, {
             method: 'DELETE',
             headers: {
@@ -41,9 +43,12 @@ export default class Dashboardalbums extends React.Component {
             body: JSON.stringify({
                 'mongoid': `${identification}`
             }),
-            success: [
-                NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {})
-            ]
+            success: (
+                function() {
+                    NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {});
+                    dispatch(refreshDashboard())    
+                }
+            )
         })
     }
 
@@ -62,9 +67,9 @@ export default class Dashboardalbums extends React.Component {
                     onClick={() => {this.deleteItem(this.props.mongoId, this.props.user)}}>X
                     </button>
                     </div>
-                        <h5 className="text-bold">{this.props.artist}</h5>
-                        <h5 className="text-bold">{this.props.album}</h5>
-                        <h5 className="text-bold">Rating: {this.props.rating}</h5>
+                        <p className="text-bold">{this.props.artist}</p>
+                        <p className="text-bold">{this.props.album}</p>
+                        <p className="text-bold">Rating: {this.props.rating}</p>
                         <p className="text-bold">{this.props.genre}</p>
                         <section className="buttons"> 
                         <a href={this.props.buyOnItunes} target="_blank" alt="Buy on Itunes" role="presentation"><button className="itunes-link"><i className="fa fa-apple" aria-hidden="true" title="Click to buy on Itunes" alt="Buy on Itunes" role="presentation"></i></button></a>
