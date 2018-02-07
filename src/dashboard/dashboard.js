@@ -11,8 +11,42 @@ export class Dashboardpage extends React.Component {
     constructor() {
       super();
       this.state = {
-        cards: []
+        cards: [],
+        reloading: false
       }
+      this.updateDashboard = this.updateDashboard.bind(this);
+    }
+
+    fetchMusicData() {
+      fetch(`http://localhost:8080/music-data/${this.props.username}`)
+      .then(results => {
+        return results.json()
+      })
+      .then(data => {
+        let results = []
+        for (var i = 0; i < data.length; i++) {
+          results[i] = <Dashboardalbums key={i} 
+                                        artist={data[i].artist}     
+                                        album={data[i].album} 
+                                        genre={data[i].genre} 
+                                        imagelink={data[i].artwork} 
+                                        buyOnItunes={data[i].itunesLink} 
+                                        rating={data[i].rating} 
+                                        collectionId={data[i].collectionId} 
+                                        user={data[i].user} 
+                                        mongoId={data[i]._id} 
+                                        callback={this.render()}
+                        />
+        }
+        this.setState({
+          cards: results,
+          reloading: false
+        })
+      })
+    }
+    
+    updateDashboard() {
+      this.fetchMusicData();
     }
     
     createNotification = (type) => {
@@ -39,29 +73,7 @@ export class Dashboardpage extends React.Component {
     };
 
     componentDidMount() {
-      // let cards
-      fetch(`http://localhost:8080/music-data/${this.props.username}`)
-        .then(results => {
-          return results.json()
-        })
-        .then(data => {
-          let results = []
-          for (var i = 0; i < data.length; i++) {
-            results[i] = <Dashboardalbums key={i} 
-                                          artist={data[i].artist}     
-                                          album={data[i].album} 
-                                          genre={data[i].genre} 
-                                          imagelink={data[i].artwork} 
-                                          buyOnItunes={data[i].itunesLink} 
-                                          rating={data[i].rating} 
-                                          collectionId={data[i].collectionId} 
-                                          user={data[i].user} 
-                                          mongoId={data[i]._id} 
-                                          callback={this.render()}
-                          />
-          }
-          this.setState({cards: results})
-        })
+      this.fetchMusicData()
     }
 
     render() {
@@ -75,6 +87,9 @@ export class Dashboardpage extends React.Component {
               <p>To add rate and add music to your dashboard, search for music <a href="/search" className="first-search">here</a>.</p>
             </section>
           </div>
+      }
+      else if (this.state.reloading === true) {
+        this.updateDashboard()
       }
       else {
         message = this.state.cards

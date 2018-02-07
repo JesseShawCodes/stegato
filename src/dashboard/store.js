@@ -6,12 +6,12 @@ import dashboardRefresher from './reducers';
 const loggerMiddleware = createLogger()
 
 export default function configureStore(preloadedState) {
-  return createStore(
-    dashboardRefresher,
-    preloadedState,
-    applyMiddleware(
-      thunkMiddleware,
-      loggerMiddleware
+    return createStore(
+        dashboardRefresher,
+        preloadedState,
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
     )
   )
 }

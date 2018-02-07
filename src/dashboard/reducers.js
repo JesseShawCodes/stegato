@@ -7,13 +7,8 @@ const initialState = {
     reloading: false
 };
 
-function dashboardRefresher(state=initialState, action) {
-    if (action.type === DELETE_ALBUM) {
-        return Object.assign({}, state, {
-            reloading: false
-        });
-    }
-    else if (action.type === REFRESH_DASHBOARD) {
+function dashboardRefresher(state, action) {
+    if (action.type === REFRESH_DASHBOARD) {
         return Object.assign({}, state, {
             reloading: true
         });

@@ -5,6 +5,7 @@ export const deleteAlbum = () => ({
     type: DELETE_ALBUM
 });
 
-export const refreshDashboard = () => ({
-    type: REFRESH_DASHBOARD
+export const refreshDashboard = state => ({
+    type: REFRESH_DASHBOARD,
+    state
 });

@@ -1,10 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import './dashboardalbums.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import {refreshDashboard} from './actions'
 
-export default class Dashboardalbums extends React.Component {
+class Dashboardalbums extends React.Component {
     constructor(props) {
         super(props);
         this.deleteItem = this.deleteItem.bind(this);
@@ -33,7 +34,6 @@ export default class Dashboardalbums extends React.Component {
     };
 
     deleteItem(identification, whoAreYou) {
-        const { dispatch } = this.props
         fetch(`http://localhost:8080/music-data/`, {
             method: 'DELETE',
             headers: {
@@ -44,10 +44,7 @@ export default class Dashboardalbums extends React.Component {
                 'mongoid': `${identification}`
             }),
             success: (
-                function() {
-                    NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {});
-                    dispatch(refreshDashboard())    
-                }
+                this.props.dispatch(refreshDashboard(false))
             )
         })
     }
@@ -92,3 +89,5 @@ Dashboardalbums.defaultProps = {
     imagelink: "http://is2.mzstatic.com/image/thumb/Music/v4/ae/f9/97/aef9970e-7031-6f03-45d2-a12c0d81383e/source/100x100bb.jpg",
     buyOnItunes: "http://www.itunes.com"
 };
+
+export default connect()(Dashboardalbums)

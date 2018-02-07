@@ -11,7 +11,7 @@ export class Dashboardroot extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Dashboardpage username={this.props.username}/>
+        <Dashboardpage username={this.props.username} reloading={false}/>
       </Provider>
     )
   }
