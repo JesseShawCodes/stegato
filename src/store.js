@@ -40,7 +40,6 @@ export function configureStore(preloadedState) {
     preloadedState,
     applyMiddleware(
       thunkMiddleware
-      // loggerMiddleware
     )
   )
 }

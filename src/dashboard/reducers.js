@@ -1,5 +1,4 @@
 import {
-    DELETE_ALBUM,
     REFRESH_DASHBOARD
 } from './actions';
 
