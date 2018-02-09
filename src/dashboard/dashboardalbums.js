@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './dashboardalbums.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 // import {refreshDashboard} from './actions'
 
@@ -76,7 +76,6 @@ class Dashboardalbums extends React.Component {
                     </div>                                
                 </div>
             </div>
-            <NotificationContainer/>
             </div>
           )
     }

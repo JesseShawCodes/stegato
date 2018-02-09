@@ -52,13 +52,16 @@ export class Dashboardpage extends React.Component {
           cards: results,
           reloading: false
         })
-        console.log("State has been updated");
       })
     }
     
     updateDashboard() {
       console.log("Updating Dashboard...");
       this.fetchMusicData();
+    }
+
+    deleteMessage() {
+      console.log("Delete message...")
     }
     
     createNotification = (type) => {

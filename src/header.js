@@ -9,8 +9,8 @@ import {Redirect} from 'react-router-dom';
 export class Heading extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
-        clearAuthToken();  
-        if (this.props.user === undefined) {
+        clearAuthToken();
+        if (this.props.hasAuthToken === false) {
             return <Redirect to="/logout" />;
         }
     }
@@ -21,6 +21,7 @@ export class Heading extends React.Component {
         let loginButton;
         let registerButton;
         let listItems
+        console.log(this.props.hasAuthToken)
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/logout" onClick={() => this.logOut()}>Logout</a>

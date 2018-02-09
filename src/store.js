@@ -19,7 +19,7 @@ const store = createStore(
         protectedData: protectedDataReducer
     }),
     applyMiddleware(
-        thunk,
+        thunk
         // loggerMiddleware
     )
 );
