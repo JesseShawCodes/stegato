@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import {searchItunes} from '../actions';
 import Spinner from 'react-spinkit';
 import Albumrow from '../components/albumrow';
-import './searchresults.css'
+import './searchresults.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 export class AsyncApp extends React.Component {
     renderResults() {
@@ -30,6 +33,8 @@ export class AsyncApp extends React.Component {
                                 buyOnItunes={this.props.music[i].collectionViewUrl}
                                 collectionId={this.props.music[i].collectionId}
                                 user={this.props.user}
+                                successFunction={this.successMessage}
+                                loginFunction={this.loginMessage}
                         />
         }
 
@@ -49,9 +54,24 @@ export class AsyncApp extends React.Component {
         this.props.dispatch(searchItunes(this.input.value));
     }
 
+    successMessage() {
+        console.log("Success message triggered");
+        NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
+            alert('callback');
+        })
+    }
+
+    loginMessage() {
+        console.log("Login Message has been triggered");
+        NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
+            alert('callback');
+        })
+    }
+
     render() {
         return (
             <div className="search-section">
+            <NotificationContainer />
             <form className="musicsearch" onSubmit={(e) => this.search(e)}>
                 <label htmlFor="artist" className="artist-search-label">Artist</label>
                 <input type="search" ref={input => this.input = input} />

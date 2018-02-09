@@ -1,8 +1,5 @@
 import React from 'react';
 import './rating.css'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
-
 
 export default class Rating extends React.Component {
     constructor(props) {
@@ -57,9 +54,7 @@ export default class Rating extends React.Component {
     
     submitRating() {
         if (this.props.user === undefined || this.props.user === null) {
-            NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
-                alert('callback');
-            });
+            this.props.loginMessage()
         }
         else {
             var submission = {
@@ -89,9 +84,7 @@ export default class Rating extends React.Component {
                     "collectionid": `${submission.collectionid}`
                 })
             }).then(
-                NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
-                    alert('callback');
-                })
+                this.props.successMessage()
             )
             .then(
                 this.setState({rating: undefined})
@@ -132,7 +125,6 @@ export default class Rating extends React.Component {
             <section className="rating-add">
                 {ratings}
                 {this.reRender()}
-                <NotificationContainer />
             </section>
         );
     }
