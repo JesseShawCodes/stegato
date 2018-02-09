@@ -8,16 +8,26 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 export class Dashboardpage extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         cards: [],
         reloading: false
       }
       this.updateDashboard = this.updateDashboard.bind(this);
+      this.updateDashboardTest = this.updateDashboardTest.bind(this);
+      this.fetchMusicData = this.fetchMusicData.bind(this);
+    }
+
+    updateDashboardTest() {
+      setTimeout( function() {
+        this.setState({reloading: true})
+      }.bind(this), 3000
+      )
     }
 
     fetchMusicData() {
+      console.log("Fetching Data...")
       fetch(`http://localhost:8080/music-data/${this.props.username}`)
       .then(results => {
         return results.json()
@@ -35,17 +45,19 @@ export class Dashboardpage extends React.Component {
                                         collectionId={data[i].collectionId} 
                                         user={data[i].user} 
                                         mongoId={data[i]._id} 
-                                        callback={this.render()}
+                                        updateDashboard={this.updateDashboardTest} 
                         />
         }
         this.setState({
           cards: results,
           reloading: false
         })
+        console.log("State has been updated");
       })
     }
     
     updateDashboard() {
+      console.log("Updating Dashboard...");
       this.fetchMusicData();
     }
     

@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import './dashboardalbums.css';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import {refreshDashboard} from './actions'
+// import {refreshDashboard} from './actions'
 
 class Dashboardalbums extends React.Component {
     constructor(props) {
         super(props);
         this.deleteItem = this.deleteItem.bind(this);
     }
-
+    /*
     createNotification = (type) => {
         return () => {
           switch (type) {
@@ -32,6 +32,7 @@ class Dashboardalbums extends React.Component {
           }
         };
     };
+    */
 
     deleteItem(identification, whoAreYou) {
         fetch(`http://localhost:8080/music-data/`, {
@@ -44,7 +45,7 @@ class Dashboardalbums extends React.Component {
                 'mongoid': `${identification}`
             }),
             success: (
-                this.props.dispatch(refreshDashboard(false))
+                this.props.updateDashboard()
             )
         })
     }
