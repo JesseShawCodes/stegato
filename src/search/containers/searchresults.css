@@ -24,6 +24,10 @@ button {
     margin-top: 10px;
 }
 
+.error-message {
+    margin-bottom: 5px;
+}
+
 @media (max-width: 750px) {
     label.artist-search-label {
         display: inherit;

@@ -14,7 +14,7 @@ export class AsyncApp extends React.Component {
             return <Spinner fadeIn="none" />;
         }
         if (this.props.error) {
-            return <strong>{this.props.error}</strong>;
+            return <strong className="error-message">{this.props.error}</strong>;
         }
         if (this.props.music === undefined) {
             return <h1>There is a problem reading results from the API</h1>
