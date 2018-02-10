@@ -1,38 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import './dashboardalbums.css';
-// import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-// import {refreshDashboard} from './actions'
 
 class Dashboardalbums extends React.Component {
     constructor(props) {
         super(props);
         this.deleteItem = this.deleteItem.bind(this);
     }
-    /*
-    createNotification = (type) => {
-        return () => {
-          switch (type) {
-            case 'info':
-              NotificationManager.info('Info message');
-              break;
-            case 'success':
-              NotificationManager.success('Success message', 'Title here');
-              break;
-            case 'warning':
-              NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-              break;
-            case 'error':
-              NotificationManager.error('Item has been deleted from your dashboard', 'Album deleted!', 5000, () => {
-              });
-              break;
-            default:
-            // Do Nothing
-          }
-        };
-    };
-    */
 
     deleteItem(identification, whoAreYou) {
         fetch(`http://localhost:8080/music-data/`, {
@@ -79,7 +54,6 @@ class Dashboardalbums extends React.Component {
             </div>
           )
     }
-
 };
 
 Dashboardalbums.defaultProps = {

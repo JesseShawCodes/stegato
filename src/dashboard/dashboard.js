@@ -92,7 +92,6 @@ export class Dashboardpage extends React.Component {
     }
 
     render() {
-      // let cards
       let message
       if (this.state.cards.length === 0) {
         message = 
