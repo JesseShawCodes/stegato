@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import {connect} from 'react-redux';
-import {clearAuth} from './auth/actions/auth';
+// import {clearAuth} from './auth/actions/auth';
 import {clearAuthToken} from './auth/localstorage';
 import logo from './images/stegato_logo.png'
 import {Redirect} from 'react-router-dom';
