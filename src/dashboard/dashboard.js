@@ -28,7 +28,7 @@ export class Dashboardpage extends React.Component {
 
     fetchMusicData() {
       console.log("Fetching Data...")
-      fetch(`http://localhost:8080/music-data/${this.props.username}`)
+      fetch(`https://stegato-api.herokuapp.com/music-data/${this.props.username}`)
       .then(results => {
         return results.json()
       })
