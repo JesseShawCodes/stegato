@@ -52,8 +52,8 @@ button {
         font-size: 28px;
     }
     input[type="search"] {
-        height: 30px;
-        font-size: 30px;
+        height: 40px;
+        font-size: 20px;
         border-style: solid;
         margin-bottom: 10px;
     }

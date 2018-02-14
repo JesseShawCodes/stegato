@@ -78,7 +78,7 @@ export class Dashboardpage extends React.Component {
             break;
           case 'error':
             NotificationManager.error('Error message', 'Click me!', 5000, () => {
-              alert('callback');
+              console.log('callback');
             });
             break;
           default: 
