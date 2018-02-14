@@ -10,7 +10,7 @@ class Dashboardalbums extends React.Component {
     }
 
     deleteItem(identification, whoAreYou) {
-        fetch(`http://localhost:8080/music-data/`, {
+        fetch(`https://stegato-api.herokuapp.com/music-data/`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',

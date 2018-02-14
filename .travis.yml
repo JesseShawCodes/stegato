@@ -14,7 +14,7 @@
 
  deploy:
    provider: script
-   script: netlify deploy -s 233320ef-927a-4223-99e8-a4787751c3b5 -t NETLIFY_ACCESS_TOKEN c7691ffd874d4a447fe5d871ce3838385268b32b5a61505a56d5826b8d2be87b59a3b2ba31dc1cb911504779c6ff353c870f51d402f6982cb13d6bc2978b3e5a -p ./build
+   script: netlify deploy -s 233320ef-927a-4223-99e8-a4787751c3b5 -t NETLIFY_ACCESS_TOKEN c7691ffd874d4a447fe5d871ce3838385268b32b5a61505a56d5826b8d2be87b -p ./build
    skip_cleanup: true
    on:
      branch: master
