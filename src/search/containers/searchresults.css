@@ -13,7 +13,7 @@ label.artist-search-label {
 }
 
 input[type="search"] {
-    padding: 10px;
+    /*padding: 10px;*/
     font-size: 20px;
     display: inherit;
     margin: 0px auto;
