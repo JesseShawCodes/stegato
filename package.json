@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cross-fetch": "^1.1.1",
+    "flow-bin": "^0.65.0",
     "jquery": "^3.2.1",
     "jwt-decode": "^2.2.0",
     "metaget": "^1.0.5",
