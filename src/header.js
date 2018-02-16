@@ -21,7 +21,6 @@ export class Heading extends React.Component {
         let loginButton;
         let registerButton;
         let listItems
-        console.log(this.props.hasAuthToken)
         if (this.props.loggedIn) {
             logOutButton = (
                 <a href="/logout" onClick={() => this.logOut()}>Logout</a>
