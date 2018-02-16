@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {clearAuthToken} from './auth/localstorage';
 import logo from './images/stegato_logo.png'
 import {Redirect} from 'react-router-dom';
-import store from './store'
 
 export class Heading extends React.Component {
     logOut() {
@@ -77,4 +76,4 @@ const mapStateToProps = state => ({
     name: state.auth.currentUser
 });
 
-export default connect(mapStateToProps)(Heading)(store);
+export default connect(mapStateToProps)(Heading);
