@@ -14,6 +14,7 @@ export class Searchform extends React.Component {
         if (this.input.value.trim() === '') {
             return;
         }
+        console.log("Searchform search...")
         this.props.dispatch(searchItunes(this.input.value));
     }
 

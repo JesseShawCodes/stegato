@@ -4,6 +4,7 @@ import {searchItunes} from '../actions';
 import Spinner from 'react-spinkit';
 import Albumrow from '../components/albumrow';
 import './searchresults.css';
+import $ from 'jquery';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
@@ -51,7 +52,19 @@ export class AsyncApp extends React.Component {
         if (this.input.value.trim() === '') {
             return;
         }
-        this.props.dispatch(searchItunes(this.input.value));
+        var key = "48a68fa743a6e709380166a2342c0c27";
+        var url = "https://ws.audioscrobbler.com/2.0/";
+        const settings = {
+            artist: `${this.input.value}`,
+            api_key: key,
+            method: "artist.getCorrection",
+            format: "json",
+            autocorrect: 1
+        };
+        var self = this
+        $.getJSON(url, settings, result =>
+            self.props.dispatch(searchItunes(result.corrections.correction.artist.name))
+        );
     }
 
     successMessage() {
