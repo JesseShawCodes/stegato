@@ -33,6 +33,7 @@ export class AsyncApp extends React.Component {
                                 imagelink={this.props.music[i].artworkUrl100}
                                 buyOnItunes={this.props.music[i].collectionViewUrl}
                                 collectionId={this.props.music[i].collectionId}
+                                releaseDate={this.props.music[i].releaseDate}
                                 user={this.props.user}
                                 successFunction={this.successMessage}
                                 loginFunction={this.loginMessage}

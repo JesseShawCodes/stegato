@@ -3,7 +3,7 @@ import './albumrow.css';
 import Rating from './rating'
 
 export default function AlbumRow(props) {
-    var ratings = <Rating Artist={props.artist} Album={props.album} Genre={props.genre} Artwork={props.imagelink} buyOnItunes={props.buyOnItunes} collectionId={props.collectionId} user={props.user} successMessage={props.successFunction} loginMessage={props.loginFunction}/>
+    var ratings = <Rating Artist={props.artist} Album={props.album} Genre={props.genre} Artwork={props.imagelink} buyOnItunes={props.buyOnItunes} collectionId={props.collectionId} user={props.user} successMessage={props.successFunction} loginMessage={props.loginFunction} releaseDate={props.releaseDate}/>
     return (
         <div className="grid-item">
         <div className="flip-container" >

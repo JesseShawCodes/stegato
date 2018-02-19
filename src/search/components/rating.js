@@ -53,6 +53,7 @@ export default class Rating extends React.Component {
     }
     
     submitRating() {
+        let baseUrl = "http://localhost:8080"
         if (this.props.user === undefined || this.props.user === null) {
             this.props.loginMessage()
         }
@@ -65,7 +66,8 @@ export default class Rating extends React.Component {
                 artwork: this.props.Artwork,
                 itunesLink: this.props.buyOnItunes,
                 user: this.props.user.username,
-                collectionid: this.props.collectionId
+                collectionid: this.props.collectionId,
+                releaseDate: this.props.releaseDate
             }
             fetch(`https://stegato-api.herokuapp.com/music-data/${submission.user}`, {
                 method: 'POST',
@@ -81,7 +83,8 @@ export default class Rating extends React.Component {
                     'artwork': `${submission.artwork}`,
                     'BuyOnItunes': `${submission.itunesLink}`,
                     'user': `${submission.user}`,
-                    "collectionid": `${submission.collectionid}`
+                    "collectionid": `${submission.collectionid}`,
+                    "releaseDate": `${submission.releaseDate}`
                 })
             }).then(
                 this.props.successMessage()
