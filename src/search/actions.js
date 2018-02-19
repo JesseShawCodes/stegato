@@ -47,7 +47,10 @@ function _search(name) {
                 }
             )
           }
-          break
+          else {
+              continue
+          }
+          return
         }
     })
 }
