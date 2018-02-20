@@ -53,7 +53,6 @@ export default class Rating extends React.Component {
     }
     
     submitRating() {
-        let baseUrl = "http://localhost:8080"
         if (this.props.user === undefined || this.props.user === null) {
             this.props.loginMessage()
         }

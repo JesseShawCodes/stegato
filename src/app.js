@@ -12,6 +12,7 @@ import Registerroot from './auth/register/root';
 import Loginroot from './auth/login/root';
 import Dashboardroot from './dashboard/root';
 import Howto from './how to/how-to'
+import LeaderboardRoot from './leaderboard/root'
 import {refreshAuthToken} from './auth/actions/auth'
 
 export class App extends React.Component {
@@ -58,6 +59,7 @@ export class App extends React.Component {
                     <Route exact path="/search/" component={SearchRoot} user={user}/>
                     <Route exact path="/logout/" component={Logoutpage} />
                     <Route exact path="/dashboard/" component={Dashboardroot} />
+                    <Route exact path="/leaderboard/" component={LeaderboardRoot} />
                 <Footer />
             </main>
             </Router>

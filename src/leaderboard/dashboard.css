@@ -1,0 +1,19 @@
+div#main {
+    /* align-items: center; */
+    /* margin: 0px auto; */
+    text-align: center;
+}
+
+.dashboard-items {
+    text-align: center;
+    margin-top: 3px;
+}
+
+.initial-greeting h1 {
+    margin: 0px auto;
+    text-align: center;
+}
+
+.first-search:hover {
+    color: #ff533d;
+}

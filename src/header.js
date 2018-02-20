@@ -32,6 +32,7 @@ export class Heading extends React.Component {
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
+                <li><a href="/leaderboard">Leaderboard</a></li>
                 <li><a href="/search">Search</a></li>
                 <li>{dashboardButton}</li>
                 <li>{logOutButton}</li>
@@ -49,6 +50,7 @@ export class Heading extends React.Component {
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
+                    <li><a href="/leaderboard">Leaderboard</a></li>
                     <li><a href="/search">Search</a></li>
                     <li>{loginButton}</li>
                     <li>{registerButton}</li>
