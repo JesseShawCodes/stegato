@@ -11,3 +11,11 @@ h2 {
 section {
     text-align: left;
 }
+
+.screenshot {
+    width: 200px;
+}
+
+.directions {
+    text-align: center;
+}
