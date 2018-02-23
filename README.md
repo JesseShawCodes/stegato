@@ -17,3 +17,24 @@ Submit it to your dashboard and the Stegato database
 After rating an artist’s project, you can see on the leaderboard where your project ranks within the Stegato community leaderboard.
 
 This application is powered by iTunes and last.fm API’s.
+
+
+This application was designed as a capstone project while studying at Thinkful.
+
+## Features
+- React JS
+- Redux
+- enzyme
+- Node JS
+- Express
+- Passport HTTP
+- Passport JWT
+- bcrypt
+- jsonwebtoken
+- Mocha
+- Chai
+- MongoDB/mongoose
+- mLab
+- TravisCI
+- Heroku
+- jQuery
