@@ -1,4 +1,4 @@
-#STEGATO
+# STEGATO
 
 How to Use this App
 Stegato was created as an application to rate all of your music.
@@ -6,11 +6,13 @@ Stegato was created as an application to rate all of your music.
 After registering your account, you will be able to search and rate all music that is in the iTunes database. When your rating is submitted, that album is added to your music dashboard.
 
 Search for an artist
-![alt text](/src/images/IMG_5491.PNG)
+![Search for an artist](/src/images/IMG_5489.PNG)
 
 Rate the project
+![Rate the Project](/src/images/IMG_5490.PNG)
 
 Submit it to your dashboard and the Stegato database
+![Submit to Dashboard](/src/images/IMG_5491.PNG)
 
 After rating an artist’s project, you can see on the leaderboard where your project ranks within the Stegato community leaderboard.
 
