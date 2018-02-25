@@ -160,7 +160,7 @@ h5 {
 
 /* flip speed goes here */
 .flipper {
-	transition: 1s;
+	transition: 1.2 s;
 	transform-style: preserve-3d;
 	position: relative;
 }
