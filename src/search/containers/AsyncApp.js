@@ -69,14 +69,12 @@ export class AsyncApp extends React.Component {
     }
 
     successMessage() {
-        console.log("Success message triggered");
         NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
             console.log('callback');
         })
     }
 
     loginMessage() {
-        console.log("Login Message has been triggered");
         NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
             console.log('callback');
         })

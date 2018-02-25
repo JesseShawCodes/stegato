@@ -28,7 +28,6 @@ export class Dashboardpage extends React.Component {
     }
 
     fetchMusicData() {
-      console.log("Fetching Data...")
       fetch(`https://stegato-api.herokuapp.com/music-data/${this.props.username}`)
       .then(results => {
         return results.json()
@@ -57,12 +56,7 @@ export class Dashboardpage extends React.Component {
     }
     
     updateDashboard() {
-      console.log("Updating Dashboard...");
       this.fetchMusicData();
-    }
-
-    deleteMessage() {
-      console.log("Delete message...")
     }
     
     createNotification = (type) => {

@@ -9,9 +9,6 @@ import {setAuthToken, refreshAuthToken} from './auth/actions/auth';
 //User Search Imports
 import thunkMiddleware from 'redux-thunk'
 
-
-// const loggerMiddleware = createLogger()
-
 const store = createStore(
     combineReducers({
         form: formReducer,

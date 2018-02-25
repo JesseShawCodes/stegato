@@ -6,6 +6,9 @@ import {clearAuthToken} from './auth/localstorage';
 import logo from './images/stegato_logo.png'
 import {Redirect} from 'react-router-dom';
 
+
+//Header Component. This component updates when a user is logged in. 
+
 export class Heading extends React.Component {
     logOut() {
         // this.props.dispatch(clearAuth());
