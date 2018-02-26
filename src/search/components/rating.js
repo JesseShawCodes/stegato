@@ -68,7 +68,7 @@ export default class Rating extends React.Component {
                 collectionid: this.props.collectionId,
                 releaseDate: this.props.releaseDate
             }
-            fetch(`http://localhost:8080/music-data/${submission.user}`, {
+            fetch(`https://stegato-api.herokuapp.com/music-data/${submission.user}`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
