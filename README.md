@@ -38,3 +38,7 @@ This application was designed as a capstone project while studying at Thinkful.
 - TravisCI
 - Heroku
 - jQuery
+
+## API Documentation
+
+Stegato utilizes the last.fm and iTunes api. The last.fm api is used to correct any spelling errors from the user. For example, if a user inputs "davidbowie", the last.fm api corrects this input to "David Bowie." From there, all albums by the artist searched for by the user is returned from the last.fm API.
