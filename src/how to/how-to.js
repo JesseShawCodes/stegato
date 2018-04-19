@@ -9,9 +9,11 @@ export default function Howto() {
     return (
         <section className="how-to">
         <h2>How to Use this App</h2>
-            <section>
-            <p>Stegato was created as an application to rate all of your music.</p>
-            <p>After registering your account, you will be able to search and rate all music that is in the iTunes database. When your rating is submitted, that album is added to your music dashboard.</p>
+            <section className="description">
+                <section className="about-section">
+                    <p>Stegato was created as an application to rate all of your music.</p>
+                    <p>After registering your account, you will be able to search and rate all music that is in the iTunes database. When your rating is submitted, that album is added to your music dashboard.</p>
+                </section>
             <img src={image4} className="big-screenshot" alt="screenshot 4"></img>
             <section className="demo-credentials">
                 <p>If you would like to demo this application, login with the following credentials</p>
