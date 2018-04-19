@@ -11,6 +11,11 @@ export default function Howto() {
             <section>
             <p>Stegato was created as an application to rate all of your music.</p>
             <p>After registering your account, you will be able to search and rate all music that is in the iTunes database. When your rating is submitted, that album is added to your music dashboard.</p>
+            <p>If you would like to demo this application, login with the following credentials</p>
+            <section className="demo-credentials">
+                <p className="demo-username"><span className="credentials-label">Username:</span> demo</p>
+                <p className="demo-password"><span className="credentials-label">Password: </span> passw0rd2018!</p>
+            </section>
             <section className="directions">
             <h3>Search for an artist</h3>
             <img src={image1} className="screenshot" alt="screenshot 1"></img>
