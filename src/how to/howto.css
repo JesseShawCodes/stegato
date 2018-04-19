@@ -8,6 +8,10 @@ h2 {
     text-align: left;
 }
 
+img.big-screenshot {
+    width: 100%;
+}
+
 section {
     text-align: left;
 }
@@ -20,6 +24,7 @@ section.demo-credentials {
     border-right: none;
     border-left: none;
     border-color: #0e1627;
+    margin-top: 20px;
 }
 
 span.credentials-label {
