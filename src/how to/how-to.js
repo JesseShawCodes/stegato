@@ -18,7 +18,7 @@ export default function Howto() {
             <section className="demo-credentials">
                 <p>If you would like to demo this application, login with the following credentials</p>
                 <p className="demo-username"><span className="credentials-label">Username:</span> demo</p>
-                <p className="demo-password"><span className="credentials-label">Password: </span> passw0rd2018!</p>
+                <p className="demo-password"><span className="credentials-label">Password: </span> passw0rd2018</p>
             </section>
             <section className="directions">
             <h3>Search for an artist</h3>

@@ -25,6 +25,7 @@ export class Login extends React.Component {
             return <Redirect to="/dashboard" />;
         }
         return (
+            <section>
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -51,6 +52,12 @@ export class Login extends React.Component {
                     Log in
                 </button>
             </form>
+            <section className="demo-credentials">
+                <p>If you would like to demo this application, login with the following credentials</p>
+                <p className="demo-username"><span className="credentials-label">Username:</span> demo</p>
+                <p className="demo-password"><span className="credentials-label">Password: </span> passw0rd2018</p>
+            </section>
+            </section>
         );
     }
 }
