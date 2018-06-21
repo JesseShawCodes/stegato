@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="point-of-contact">
                 <i className="fa fa-github fa-3x sr-contact"></i>
                     <p className="point-of-contact-link">
-                        <a href="https://github.com/thejesseshaw" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://github.com/JesseShawCodes" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </p>
             </div>  
             </div>
