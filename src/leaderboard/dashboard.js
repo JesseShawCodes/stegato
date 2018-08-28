@@ -1,6 +1,4 @@
 import React from 'react';
-// import {connect} from 'react-redux';
-// import requiresLogin from '../auth/requires-login';
 import Dashboardalbums from './dashboardalbums';
 import './dashboard.css';
 import fetch from 'cross-fetch';
@@ -96,16 +94,3 @@ export class Dashboardpage extends React.Component {
       );
     }
 }
-/*
-const mapStateToProps = state => {
-  const {currentUser} = state.auth;
-  return {
-      username: state.auth.currentUser.username,
-      name: `${currentUser.firstName} ${currentUser.lastName}`,
-      protectedData: state.protectedData.data,
-      reloading: state.reloading
-  };
-};
-
-export default requiresLogin()(connect(mapStateToProps)(Dashboardpage));
-*/
