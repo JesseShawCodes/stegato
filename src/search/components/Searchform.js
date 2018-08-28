@@ -38,4 +38,5 @@ const mapStateToProps = state => ({
     error: state.error
 });
 
-export default Searchform
+// export default Searchform
+export default connect(mapStateToProps)(Searchform)
