@@ -38,8 +38,8 @@ function _search(name) {
                 // "Content-Type": "application/x-www-form-urlencoded",
             },
             redirect: "follow", // manual, *follow, error
-            referrer: "client" // no-referrer, *client
-            // body: JSON.stringify(data), // body data type must match "Content-Type" header
+            referrer: "client", // no-referrer, *client
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
         }
     ).then(function (response){
         return response.json();
