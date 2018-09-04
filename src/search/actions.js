@@ -34,7 +34,7 @@ function _search(name) {
             cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "omit", // include, same-origin, *omit
             headers: {
-                "Content-Type": "application/json; charset=utf-8",
+                "Content-Type": "text/javascript; charset=utf-8",
                 // "Content-Type": "application/x-www-form-urlencoded",
             },
             redirect: "follow", // manual, *follow, error
