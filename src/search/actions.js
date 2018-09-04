@@ -27,6 +27,9 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
+    if (searchTerm.search("$") !== -1) {
+        console.log("Need to replace $")
+    }
     return fetch(`
         ${itunesUrl}${searchTerm}&country=no`
     ).then(function (response){
