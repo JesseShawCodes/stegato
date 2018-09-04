@@ -36,7 +36,8 @@ function _search(name) {
             headers: {
                 "Content-Type": "text/javascript; charset=utf-8",
                 // "Content-Type": "application/x-www-form-urlencoded",
-            }
+            },
+            referrer: "client", // no-referrer, *client
         }
     ).then(function (response){
         return response.json();
