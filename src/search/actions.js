@@ -27,9 +27,10 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    console.log("TESTING")
     return fetch(`
-        ${itunesUrl}${searchTerm}`
+        ${itunesUrl}${searchTerm}`, {
+            mode: "cors"
+        }
     ).then(function (response){
         console.log(response)
         return response.json();
