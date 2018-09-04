@@ -27,7 +27,7 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album&country=no`, {
+    return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
         method: "GET" // *GET, POST, PUT, DELETE, etc.
     })
     .then(function(res) {
