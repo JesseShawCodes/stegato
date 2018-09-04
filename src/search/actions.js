@@ -18,8 +18,8 @@ export const searchMusicError = error => ({
 });
 
 //Itunes API Links
-var itunesUrl = "https://itunes.apple.com/search?term=";
-var albumUrl = "https://itunes.apple.com/lookup?id=";
+// var itunesUrl = "https://itunes.apple.com/search?term=";
+// var albumUrl = "https://itunes.apple.com/lookup?id=";
 
 function _search(name) {
     if (Math.random() < 0.25) {
