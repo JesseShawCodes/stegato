@@ -27,37 +27,18 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    return fetch(`
-        ${itunesUrl}${searchTerm}`, {
-            mode: "cors"
+    return fetch(`https://itunes.apple.com/search?term=${searchTerm}&entity=album`)
+    .then(function(res) {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
         }
-    ).then(function (response){
-        console.log(response)
-        return response.json();
+        console.log("TESTING")
+        return res.json()
     })
-    .then(function (json){
-        for (var i = 0; i < json.results.length; i++) {
-          if (json.results[i].artistName === artist) {
-            let artistId = json.results[i].artistId
-            console.log(artistId);
-            return fetch(`${albumUrl}${artistId}&entity=album&country=no`).then(function(res) {
-                if (!res.ok) {
-                    return Promise.reject(res.statusText);
-                }
-                return res.json()
-            })
-            .then(
-                function(data) {
-                    data.results.map(music => music)
-                    return data.results
-                }
-            )
-          }
-          else {
-              continue
-          }
-          // return
-        }
+    .then(function(data) {
+        data.results.map(music => music)
+        console.log(data.results)
+        return data.results
     })
 }
 
