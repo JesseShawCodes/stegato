@@ -29,6 +29,10 @@ function _search(name) {
     let searchTerm = artist.split(' ').join('+');
     return fetch(`
         ${itunesUrl}${searchTerm}`, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "no-cors", // no-cors, cors, *same-origin
+            cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "omit", // include, same-origin, *omit
             headers: {
                 "Content-Type": "text/javascript; charset=utf-8",
                 // "Content-Type": "application/x-www-form-urlencoded",
