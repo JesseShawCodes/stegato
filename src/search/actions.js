@@ -29,7 +29,7 @@ function _search(name) {
     let searchTerm = artist.split(' ').join('+');
     console.log("TESTING")
     return fetch(`
-        ${itunesUrl}${searchTerm}&country=no`
+        ${itunesUrl}${searchTerm}`
     ).then(function (response){
         console.log(response)
         return response.json();
