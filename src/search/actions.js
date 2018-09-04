@@ -27,18 +27,11 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
+    console.log("TESTING")
     return fetch(`
-        ${itunesUrl}${searchTerm}&country=no`, {
-            method: "GET", // *GET, POST, PUT, DELETE, etc.
-            credentials: "same-origin", // include, same-origin, *omit
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-                // "Content-Type": "application/x-www-form-urlencoded",
-            },
-            redirect: "follow", // manual, *follow, error
-            referrer: "client" // no-referrer, *client
-        }
+        ${itunesUrl}${searchTerm}&country=no`
     ).then(function (response){
+        console.log(response)
         return response.json();
     })
     .then(function (json){
