@@ -36,6 +36,7 @@ function _search(name) {
         for (var i = 0; i < json.results.length; i++) {
           if (json.results[i].artistName === artist) {
             let artistId = json.results[i].artistId
+            console.log(artistId);
             return fetch(`${albumUrl}${artistId}&entity=album&country=no`).then(function(res) {
                 if (!res.ok) {
                     return Promise.reject(res.statusText);
