@@ -27,16 +27,15 @@ function _search(name) {
     }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    console.log("TESTING");
     return fetch(`
         ${itunesUrl}${searchTerm}`, {
-            mode: "cors", // no-cors, cors, *same-origin
+            mode: "no-cors", // no-cors, cors, *same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "same-origin", // include, same-origin, *omit
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
                 // "Content-Type": "application/x-www-form-urlencoded",
-            },
+            }
         }
     ).then(function (response){
         return response.json();
