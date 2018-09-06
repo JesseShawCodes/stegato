@@ -70,13 +70,13 @@ export class AsyncApp extends React.Component {
 
     successMessage() {
         NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
-            console.log('callback');
+            console.log('Rating Received');
         })
     }
 
     loginMessage() {
         NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
-            console.log('callback');
+            console.log('User Must Login');
         })
     }
 

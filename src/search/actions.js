@@ -34,12 +34,10 @@ function _search(name) {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
-        console.log("TESTING")
         return res.json()
     })
     .then(function(data) {
         data.results.map(music => music)
-        console.log(data.results)
         return data.results
     })
 }
