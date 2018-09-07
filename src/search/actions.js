@@ -22,9 +22,6 @@ export const searchMusicError = error => ({
 // var albumUrl = "https://itunes.apple.com/lookup?id=";
 
 function _search(name) {
-    if (Math.random() < 0.25) {
-        return Promise.reject('Something went wrong. Please try your search again');
-    }
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
     return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
