@@ -1,19 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import './index.css';
-import Heading from './header.js';
-import Landingpage from './landingpage.js';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Heading from './header';
+import Landingpage from './landingpage';
 import Logoutpage from './auth/logout/logoutpage';
 import SearchRoot from './search/containers/root';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Footer from './footer/footer';
 import Registerroot from './auth/register/root';
 import Loginroot from './auth/login/root';
 import Dashboardroot from './dashboard/root';
-import Howto from './how to/how-to'
-import LeaderboardRoot from './leaderboard/root'
-import {refreshAuthToken} from './auth/actions/auth'
+import Howto from './how to/how-to';
+import LeaderboardRoot from './leaderboard/root';
+import { refreshAuthToken } from './auth/actions/auth';
 
 export class App extends React.Component {
 
@@ -68,9 +68,9 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null,
-    user: state.auth.currentUser
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null,
+  user: state.auth.currentUser,
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
