@@ -95,7 +95,7 @@ export class AsyncApp extends React.Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography>
-              Please note. If you are viewing this page from https://stegato.netlify.com/search, you may receive an error when searching for an artist. Please make sure you are viewing this page from http://stegato.netlify.com/search (not https). The iTunes API is currently returning an error when a search is requested from a secure site. We are working on addressing
+              Please note. If you are viewing this page from https://stegato.netlify.com/search, you may receive an error when searching for an artist. Please make sure you are viewing this page from http://stegato.netlify.com/search (not https). The iTunes API is currently returning an error when a search is requested from a secure site. We are working on addressing this issue.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
