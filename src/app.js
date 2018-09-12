@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import './index.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Heading from './header';
 import Landingpage from './landingpage';
 import Logoutpage from './auth/logout/logoutpage';
@@ -16,55 +15,54 @@ import LeaderboardRoot from './leaderboard/root';
 import { refreshAuthToken } from './auth/actions/auth';
 
 export class App extends React.Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn && !this.props.loggedIn) {
+      // When we are logged in, refresh the auth token periodically
+      this.startPeriodicRefresh();
+    } else if (!nextProps.loggedIn && this.props.loggedIn) {
+      // Stop refreshing when we log out
+      this.stopPeriodicRefresh();
+    }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.loggedIn && !this.props.loggedIn) {
-            // When we are logged in, refresh the auth token periodically
-            this.startPeriodicRefresh();
-        } else if ( !nextProps.loggedIn && this.props.loggedIn) {
-            // Stop refreshing when we log out
-            this.stopPeriodicRefresh();
-        }
+  componentWillUnmount() {
+    this.stopPeriodicRefresh();
+  }
+
+  startPeriodicRefresh() {
+    this.refreshInterval = setInterval(
+      () => this.props.dispatch(refreshAuthToken()),
+      60 * 60 * 1000, // One hour
+    );
+  }
+
+  stopPeriodicRefresh() {
+    if (!this.refreshInterval) {
+      return;
     }
 
-    componentWillUnmount() {
-        this.stopPeriodicRefresh();
-    }
+    clearInterval(this.refreshInterval);
+  }
 
-    startPeriodicRefresh() {
-        this.refreshInterval = setInterval(
-            () => this.props.dispatch(refreshAuthToken()),
-            60 * 60 * 1000 // One hour
-        );
-    }
-
-    stopPeriodicRefresh() {
-        if (!this.refreshInterval) {
-            return;
-        }
-
-        clearInterval(this.refreshInterval);
-    }
-
-    render() {
-        var user = this.props.user
-        return (
-            <Router>
-            <main>
-                    <Heading hasAuthToken={this.props.hasAuthToken} />
-                    <Route exact path="/" component={Landingpage} />
-                    <Route exact path="/about" component={Howto} />
-                    <Route exact path="/login/" component={Loginroot} />
-                    <Route exact path="/register/" component={Registerroot} />
-                    <Route exact path="/search/" component={SearchRoot} user={user}/>
-                    <Route exact path="/logout/" component={Logoutpage} />
-                    <Route exact path="/dashboard/" component={Dashboardroot} />
-                    <Route exact path="/leaderboard/" component={LeaderboardRoot} />
-                <Footer />
-            </main>
-            </Router>
-        )
-    }
+  render() {
+    const user = this.props.user;
+    return (
+      <Router>
+        <main>
+          <Heading hasAuthToken={this.props.hasAuthToken} />
+          <Route exact path="/" component={Landingpage} />
+          <Route exact path="/about" component={Howto} />
+          <Route exact path="/login/" component={Loginroot} />
+          <Route exact path="/register/" component={Registerroot} />
+          <Route exact path="/search/" component={SearchRoot} user={user} />
+          <Route exact path="/logout/" component={Logoutpage} />
+          <Route exact path="/dashboard/" component={Dashboardroot} />
+          <Route exact path="/leaderboard/" component={LeaderboardRoot} />
+          <Footer />
+        </main>
+      </Router>
+    );
+  }
 }
 
 const mapStateToProps = state => ({

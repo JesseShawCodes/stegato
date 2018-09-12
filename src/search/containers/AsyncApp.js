@@ -41,15 +41,11 @@ export class AsyncApp extends React.Component {
   }
 
   successMessage() {
-    NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000, () => {
-      console.log('Rating Received');
-    })
+    NotificationManager.success('', 'Your rating has been received and your Dashboard has been updated!', 5000);
   }
 
   loginMessage() {
-    NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000, () => {
-      console.log('User Must Login');
-    });
+    NotificationManager.error('Please navigate to the top of the page to login or register.', 'You must be a Stegato user if you want to rate music.', 5000);
   }
 
   renderResults() {
@@ -64,22 +60,21 @@ export class AsyncApp extends React.Component {
     }
 
     const music = [];
-    for (let i = 0; i < this.props.music.length; i++) {
-      if (this.props.music[i].collectionName === undefined) {
-        continue;
-      }
-      music[i] = <Albumrow key={i} 
-                            artist={this.props.music[i].artistName} 
-                            album={this.props.music[i].collectionName}
-                            genre={this.props.music[i].primaryGenreName} 
-                            imagelink={this.props.music[i].artworkUrl100}
-                            buyOnItunes={this.props.music[i].collectionViewUrl}
-                            collectionId={this.props.music[i].collectionId}
-                            releaseDate={this.props.music[i].releaseDate}
-                            user={this.props.user}
-                            successFunction={this.successMessage}
-                            loginFunction={this.loginMessage}
-                    />
+    for (let i = 0; i < this.props.music.length; i += 1) {
+      music[i] = (<Albumrow
+        key={i}
+        artist={this.props.music[i].artistName}
+        album={this.props.music[i].collectionName}
+        genre={this.props.music[i].primaryGenreName}
+        imagelink={this.props.music[i].artworkUrl100}
+        buyOnItunes={this.props.music[i].collectionViewUrl}
+        collectionId={this.props.music[i].collectionId}
+        releaseDate={this.props.music[i].releaseDate}
+        user={this.props.user}
+        successFunction={this.successMessage}
+        loginFunction={this.loginMessage}
+      />
+      );
     }
 
     return (
@@ -104,9 +99,14 @@ export class AsyncApp extends React.Component {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <form className="musicsearch" onSubmit={(e) => this.search(e)}>
-          <label htmlFor="artist" className="artist-search-label">Artist</label>
-          <input type="search" ref={input => this.input = input} />
+        <form className="musicsearch" onSubmit={e => this.search(e)}>
+          <label htmlFor="artist" className="artist-search-label">
+            Artist
+            <input
+              type="search"
+              ref={input => this.input = input}
+            />
+          </label>
           <button className="search-button" type="submit">Search</button>
         </form>
         {this.renderResults()}

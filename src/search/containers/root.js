@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider, connect } from 'react-redux';
 import configureStore from '../store';
 import AsyncApp from './AsyncApp';
 
 const store = configureStore();
 
-export class SearchRoot extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <AsyncApp user={this.props.user}/>
-      </Provider>
-    )
-  }
+export const SearchRoot = (props) => {
+  return (
+    <Provider store={store}>
+      <AsyncApp user={props.user} />
+    </Provider>
+  );
 }
 
 const mapStateToProps = state => ({
