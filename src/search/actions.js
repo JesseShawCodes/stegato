@@ -1,34 +1,35 @@
-import fetch from 'cross-fetch'
+import fetch from 'cross-fetch';
+
 export const RECEIVE_MUSIC_FROM_API = 'RECEIVE_MUSIC_FROM_API';
 export const SEARCH_ITUNES_REQUEST = 'SEARCH_ITUNES_REQUEST';
 export const SEARCH_MUSIC_ERROR = 'SEARCH_MUSIC_ERROR';
 
 export const searchMusicRequest = () => ({
-    type: SEARCH_ITUNES_REQUEST
+  type: SEARCH_ITUNES_REQUEST,
 });
 
 export const searchMusicSuccess = music => ({
-    type: RECEIVE_MUSIC_FROM_API,
-    music
+  type: RECEIVE_MUSIC_FROM_API,
+  music,
 });
 
 export const searchMusicError = error => ({
-    type: SEARCH_MUSIC_ERROR,
-    error
+  type: SEARCH_MUSIC_ERROR,
+  error,
 });
 
-//Itunes API Links
+// Itunes API Links
 // var itunesUrl = "https://itunes.apple.com/search?term=";
 // var albumUrl = "https://itunes.apple.com/lookup?id=";
 
-function _search(name) {
-    let artist = name;
-    let searchTerm = artist.split(' ').join('+');
-    return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
-        method: "GET" // *GET, POST, PUT, DELETE, etc.
-    })
-    .then(function(res) {
-        if (!res.ok) {
+function searchItunesDatabase(name) {
+  const artist = name;
+  const searchTerm = artist.split(' ').join('+');
+  return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+  })
+  .then(function(res) {
+    if (!res.ok) {
             return Promise.reject(res.statusText);
         }
         return res.json()
@@ -40,9 +41,9 @@ function _search(name) {
 }
 
 function search(name) {
-    return new Promise((resolve, reject) => {
-        resolve(_search(name))
-    });
+  return new Promise((resolve) => {
+    resolve(searchItunesDatabase(name));
+  });
 }
 
 
