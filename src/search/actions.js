@@ -24,7 +24,7 @@ export const searchMusicError = error => ({
 function _search(name) {
     let artist = name;
     let searchTerm = artist.split(' ').join('+');
-    return fetch(`http://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
+    return fetch(`https://itunes.apple.com/search?term=${searchTerm}&entity=album`, {
         method: "GET" // *GET, POST, PUT, DELETE, etc.
     })
     .then(function(res) {
